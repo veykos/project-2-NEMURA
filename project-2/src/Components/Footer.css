@@ -10,7 +10,7 @@ body{
     text-align:center;
 }
 a.social {
-    padding-top: 25px;
+    padding-top: 20px;
     margin: 0 1rem;
     transition: transform 250ms;
     display: inline-block;
