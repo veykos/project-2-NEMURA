@@ -6,10 +6,11 @@ body {
 }
 .hero {
   background-image: url("./assets/bg-hero.jpg");
-  background-size: 1500px 1200px;
+  background-size: cover;
+  object-fit: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 700px;
+  height: 500px;
 }
 .search-form {
   width: 100%;
@@ -22,6 +23,16 @@ body {
   font-size: 2rem;
   margin-top: 200px;
   opacity: 0.7;
+}
+.card {
+  height: 400px;
+  width: 300px;
+  border: 1px solid black;
+}
+.card img {
+  width: 100%; /* or any custom size */
+  height: 100%;
+  object-fit: contain;
 }
 
 .btn {

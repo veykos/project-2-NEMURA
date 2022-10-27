@@ -1,20 +1,17 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-const Search = () => {
+const Search = ({}) => {
+  const [searchInput, setSearchInput] = useState("");
+
+  const displayInput = (e) => {
+    setSearchInput(e.target.value);
+  };
   const displayResult = (e) => {
     e.preventDefault();
-    alert("hee");
+    console.log(searchInput);
   };
-  return (
-    <div>
-      <form className="search-form">
-        <input type="text" className="search-input" /> <br />
-        <button onClick={displayResult} className="btn btn-primary">
-          Search
-        </button>
-      </form>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Search;
