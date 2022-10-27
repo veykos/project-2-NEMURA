@@ -1,41 +1,72 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import Card from "./Components/Card";
+// import Card from "./Components/Card";
 import Search from "./Components/Search";
+import Card from "./Components/Card";
 
 function App() {
-  const [data, setData] = useState([]);
-  const [query, setQuery] = useState("");
-  const displayInput = (e) => {
-    setQuery(e.target.value);
+  const handleFetching = async (url, setResp, setLoading) => {
+    axios
+      .get(url)
+      .then((resp) => {
+        setResp(resp.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   };
-  const displayResult = (e) => {
-    e.preventDefault();
-    fetchShow(url, setData);
-  };
-  const url = `https://api.tvmaze.com/search/shows?q=${query}`;
-  const fetchShow = async (url, setResp) => {
-    axios.get(url).then((res) => {
-      const obj = res.data[0];
-      setResp(obj);
-    });
-    // console.log(data.show.image.medium);
-    console.log(data);
-  };
+  const [shows, setShows] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState("house");
+  const [submitSearch, setSubmitSearch] = useState(false);
+  const url = `https://api.tvmaze.com/search/shows?q=${searchInput}`;
+
+  useEffect(() => {
+    handleFetching(url, setShows, setIsLoading);
+    // const fetchShow = async () => {
+    //   const response = await axios(
+    //     `https://api.tvmaze.com/search/shows?q=${searchInput}}`
+    //   );
+    //   setShows(response.data);
+    // };
+    // fetchShow();
+    return () => {
+      setSubmitSearch(false);
+    };
+  }, [submitSearch]);
+  console.log(submitSearch, "submitSearch");
+  console.log(shows, "shows");
+
   return (
     <div className="App">
       <div className="hero">
-        <form className="search-form">
-          <input type="text" onChange={displayInput} className="search-input" />{" "}
-          <br />
-          <button onClick={displayResult} className="btn btn-primary">
-            Search
-          </button>
-        </form>
+        <Search
+          submitSearch={submitSearch}
+          setSubmitSearch={setSubmitSearch}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
       </div>
 
-      <div className="page-body"></div>
+      <div className="page-body">
+        <ul>
+          {!isLoading &&
+            shows.map((show) => {
+              return (
+                <>
+                  {/* <Card shows={show} /> */}
+                  <li key={show.show.id}>
+                    <img src={show.show?.image?.medium} />
+                    <p>{show.show.name}</p>
+                  </li>
+                </>
+              );
+            })}
+        </ul>
+      </div>
     </div>
   );
 }
