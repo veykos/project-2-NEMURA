@@ -1,28 +1,48 @@
+
 import './App.css';
-import axios from "axios";
-import React, { useState } from "react";
-import {Navbar} from './components/UI/navbar.jsx';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-//import {Home} from "./pages/home"; home tusunu kullanabilmek icin 
-//import {Link } from "react-router-dom" bunu navbara yaz <Link to="/">Home</Link> yazilabilir 
-
-
 
 function App() {
  
+  const handleFetching = async (url, setResp, setLoading) => {
+    axios
+      .get(url)
+      .then((resp) => {
+        setResp(resp.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  };
+  const [shows, setShows] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchInput, setSearchInput] = useState("house");
+  const [submitSearch, setSubmitSearch] = useState(false);
+  const url = `https://api.tvmaze.com/search/shows?q=${searchInput}`;
+
+  useEffect(() => {
+    handleFetching(url, setShows, setIsLoading);
+    // const fetchShow = async () => {
+    //   const response = await axios(
+    //     `https://api.tvmaze.com/search/shows?q=${searchInput}}`
+    //   );
+    //   setShows(response.data);
+    // };
+    // fetchShow();
+    return () => {
+      setSubmitSearch(false);
+    };
+  }, [submitSearch]);
+  console.log(submitSearch, "submitSearch");
+  console.log(shows, "shows");
+
   return (
     <div className="App">
       <header className="App-header">
-      <Router>
-        <Navbar />
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes> */}
-      </Router>
+      
       </header>
-  </div>
+    </div>
   );
 }
 
