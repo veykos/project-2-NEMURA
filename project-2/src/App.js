@@ -3,7 +3,8 @@ import './App.css';
 import React, {useState} from 'react';
 import {useEffect} from 'react';
 import axios from "axios";
-import Search from "./components/Search.jsx";
+import Search from "./Components/Search.jsx";
+import {Navbar} from "./Components/UI/navbar.jsx"
 
 function App() {
  
@@ -43,6 +44,11 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <Navbar>
+
+        </Navbar>
+      </header>
 <div className="hero">
 <Search
 submitSearch={submitSearch}
