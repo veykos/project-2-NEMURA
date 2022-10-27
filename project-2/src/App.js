@@ -1,5 +1,9 @@
 
 import './App.css';
+import React, {useState} from 'react';
+import {useEffect} from 'react';
+import axios from "axios";
+import Search from "./components/Search.jsx";
 
 function App() {
  
@@ -39,10 +43,33 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      
-      </header>
-    </div>
+<div className="hero">
+<Search
+submitSearch={submitSearch}
+setSubmitSearch={setSubmitSearch}
+searchInput={searchInput}
+setSearchInput={setSearchInput}
+/>
+</div>
+
+<div className="page-body">
+<ul>
+{!isLoading &&
+shows.map((show) => {
+return (
+<>
+{/* <Card shows={show} /> */}
+<li key={show.show.id}>
+{/* <img src={show.show?.image?.medium} /> */}
+<p>{show.show.name}</p>
+<p>{show.show.language}</p>
+</li>
+</>
+);
+})}
+</ul>
+</div>
+</div>
   );
 }
 
