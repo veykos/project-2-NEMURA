@@ -4,7 +4,8 @@ import React, {useState} from 'react';
 import {useEffect} from 'react';
 import axios from "axios";
 import Search from "./Components/Search.jsx";
-import {Navbar} from "./Components/UI/navbar.jsx"
+import {Navbar} from "./Components/UI/navbar.jsx";
+import Footer from './Components/Footer';
 
 function App() {
  
@@ -75,6 +76,7 @@ return (
 })}
 </ul>
 </div>
+<Footer/>
 </div>
   );
 }
