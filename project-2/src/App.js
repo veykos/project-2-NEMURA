@@ -46,9 +46,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navbar>
-
-        </Navbar>
+        <Navbar/>
       </header>
 <div className="hero">
 <Search
