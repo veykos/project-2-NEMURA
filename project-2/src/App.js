@@ -1,14 +1,14 @@
-
-import './App.css';
-import React, {useState} from 'react';
-import {useEffect} from 'react';
+import "./App.css";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Search from "./Components/Search.jsx";
-import {Navbar} from "./Components/UI/navbar.jsx";
-import Footer from './Components/Footer';
+import { Navbar } from "./Components/UI/navbar.jsx";
+import Footer from "./Components/Footer";
+// import Card from "./Components/Card";
+import CardGrid from "./Components/cards/CardGrid";
 
 function App() {
- 
   const handleFetching = async (url, setResp, setLoading) => {
     axios
       .get(url)
@@ -46,37 +46,22 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
-<div className="hero">
-<Search
-submitSearch={submitSearch}
-setSubmitSearch={setSubmitSearch}
-searchInput={searchInput}
-setSearchInput={setSearchInput}
-/>
-</div>
-
-<div className="page-body">
-<ul>
-{!isLoading &&
-shows.map((show) => {
-return (
-<>
-{/* <Card shows={show} /> */}
-<li key={show.show.id}>
-{/* <img src={show.show?.image?.medium} /> */}
-<p>{show.show.name}</p>
-<p>{show.show.language}</p>
-</li>
-</>
-);
-})}
-</ul>
-</div>
-<Footer/>
-</div>
-  
+      <div className="hero">
+        <Search
+          submitSearch={submitSearch}
+          setSubmitSearch={setSubmitSearch}
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
+      </div>
+      <hr />
+      <div className="page-body">
+        <CardGrid shows={shows} />
+      </div>
+      <Footer />
+    </div>
   );
 }
 
