@@ -1,0 +1,30 @@
+img {
+    width: 7%;
+}
+.nav-true nav {
+    background: linear-gradient(180deg, #000000 -29.59%, rgba(255, 255, 255, 0.0001) 100%);;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: black;
+    max-height: 65px;
+}
+
+/* .nav-true nav * {
+    color: black !important;
+} */
+
+.nav-false nav {
+    background: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    max-height: 65px;
+}
+.navbar-collapse {
+    justify-content: center;
+}
+.navbar-light .navbar-nav .nav-link{
+    padding-right: 100px;
+}
+.navbar-light .navbar-nav .nav-link{
+    color:white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

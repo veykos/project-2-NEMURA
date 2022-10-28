@@ -1,0 +1,45 @@
+body{
+    margin:0;
+    overflow-x:hidden;
+    line-height: 5;
+    }
+.Footer {
+    background: black;
+    padding-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    text-align:center;
+}
+a.social {
+    padding-top: 20px;
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+  }
+  a.social:hover {
+    transform: translateY(-2px);
+    color:#fff;
+  }
+  a.youtube {
+    color: gray;
+  }
+  
+  a.facebook {
+    color: gray;
+  }
+  
+  a.twitter {
+    color: gray;
+  }
+  
+  a.instagram {
+    color: gray;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: gray;
+    margin: 0 auto;
+    width: 80%;
+    border-top: 1px solid rgba(255,255,255,.05);
+  }

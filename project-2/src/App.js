@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import Search from "./Components/Search.jsx";
+import { Navbar } from "./Components/UI/navbar.jsx";
+import Footer from "./Components/Footer";
 // import Card from "./Components/Card";
-import Search from "./Components/Search";
-import Card from "./Components/Card";
+import CardGrid from "./Components/cards/CardGrid";
 
 function App() {
   const handleFetching = async (url, setResp, setLoading) => {
@@ -36,6 +39,9 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <Navbar />
+      </header>
       <div className="hero">
         <Search
           submitSearch={submitSearch}
@@ -44,7 +50,9 @@ function App() {
           setSearchInput={setSearchInput}
         />
       </div>
-
+      <hr />
+      <div className="page-body">
+        <CardGrid shows={shows} />
       <div className="page-body container">
         <ul>
           {!isLoading &&
@@ -62,6 +70,7 @@ function App() {
             })}
         </ul>
       </div>
+      <Footer />
     </div>
   );
 }
