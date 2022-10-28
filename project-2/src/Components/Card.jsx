@@ -1,26 +1,28 @@
 import React from "react";
+// import Modal from "./Modal";
 
-const Card = ({ shows }) => {
-  //console.log(shows.show.network.name)
+const Card = ({ show }) => {
+
   return (
     <>
       <div className="card">
         <div className="card-body">
           <div className="cardImg-container">
-            <img className="card-img" src={shows.show.image.medium} />
+            <img className="card-img" src={show.show?.image?.medium} />
           </div>
           <div className="card-name">
-            <h5>{shows.show.name}</h5>
+            <h5>{show.show.name}</h5>
           </div>
         </div>
-          <div className="card-info">
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">{shows.show.network && shows.show.network.name ? shows.show.network.name : "no network name"}</li>
-            <li className="list-group-item">{shows.show.premiered}-{shows.show.ended}</li>
-          </ul>
+        <div className="card-info">
+          <div>
+            <p>{show.show.network && show.show.network.name ? show.show.network.name : "no network name"}</p>
+            <p>
+              {show.show.premiered}-{show.show.ended}
+            </p>
           </div>
         </div>
-      
+      </div>
     </>
   );
 };

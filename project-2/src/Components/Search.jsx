@@ -16,6 +16,7 @@ const Search = ({
     <div>
       <form onSubmit={handelSearch} className="search-form">
         <input
+          placeholder="Search for any tv show..."
           type="text"
           // value={searchInput}
           onChange={(e) => {
