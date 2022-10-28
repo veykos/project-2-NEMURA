@@ -51,18 +51,19 @@ function App() {
         />
       </div>
 
-      <div className="page-body">
+      <div className="page-body container">
         <ul>
           {!isLoading &&
             shows.map((show) => {
               return (
-                <>
+                <div className="card">
                   {/* <Card shows={show} /> */}
                   <li key={show.show.id}>
                     <img src={show.show?.image?.medium} />
-                    <p>{show.show.name}</p>
+                    {/* <p>{show.show.name}</p> */}
+                    {/* <p>{show.show.language}</p> */}
                   </li>
-                </>
+                </div>
               );
             })}
         </ul>

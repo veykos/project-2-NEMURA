@@ -23,7 +23,12 @@ body {
   font-size: 2rem;
   margin-top: 200px;
   opacity: 0.7;
+  border-radius: 20px;
 }
+li {
+  list-style-type: none;
+}
+
 .card {
   height: 350px;
   width: 270px;
@@ -45,6 +50,9 @@ body {
   /* height: 55px; */
   width: 150px;
   margin: 10px;
+}
+.btn:hover {
+  background-color: black;
 }
 @media all and (max-width: 750px) {
   /* … */
