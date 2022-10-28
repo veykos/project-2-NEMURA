@@ -6,6 +6,7 @@ import axios from "axios";
 import Search from "./Components/Search.jsx";
 import {Navbar} from "./Components/UI/navbar.jsx";
 import Footer from './Components/Footer';
+import Card from './Components/Card.jsx';
 
 function App() {
  
@@ -40,8 +41,6 @@ function App() {
       setSubmitSearch(false);
     };
   }, [submitSearch]);
-  console.log(submitSearch, "submitSearch");
-  console.log(shows, "shows");
 
   return (
     <div className="App">
@@ -63,12 +62,12 @@ setSearchInput={setSearchInput}
 shows.map((show) => {
 return (
 <>
-{/* <Card shows={show} /> */}
-<li key={show.show.id}>
+<Card shows={show} />
+{/* <li key={show.show.id}> */}
 {/* <img src={show.show?.image?.medium} /> */}
-<p>{show.show.name}</p>
+{/* <p>{show.show.name}</p>
 <p>{show.show.language}</p>
-</li>
+</li> */}
 </>
 );
 })}

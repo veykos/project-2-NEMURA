@@ -1,6 +1,7 @@
 import React from "react";
 
 const Card = ({ shows }) => {
+  //console.log(shows.show.network.name)
   return (
     <>
       <div className="card">
@@ -13,9 +14,9 @@ const Card = ({ shows }) => {
           </div>
         </div>
           <div className="card-info">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{shows.show.network.name}</li>
-            <li class="list-group-item">{shows.show.premiered}-{shows.show.ended}</li>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">{shows.show.network && shows.show.network.name ? shows.show.network.name : "no network name"}</li>
+            <li className="list-group-item">{shows.show.premiered}-{shows.show.ended}</li>
           </ul>
           </div>
         </div>

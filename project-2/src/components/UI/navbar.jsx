@@ -29,7 +29,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", changeBackground);
   },[])
 
-  console.log(navbar)
   return (
     
   <div className={ navbar ? "nav-true" : "nav-false"} >
