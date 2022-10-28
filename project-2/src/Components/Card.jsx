@@ -5,12 +5,21 @@ const Card = ({ shows }) => {
     <>
       <div className="card">
         <div className="card-body">
-          <div>
+          <div className="cardImg-container">
             <img className="card-img" src={shows.show.image.medium} />
           </div>
-          {/* <p>{shows.show.name}</p> */}
+          <div className="card-name">
+            <h5>{shows.show.name}</h5>
+          </div>
         </div>
-      </div>
+          <div className="card-info">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{shows.show.network.name}</li>
+            <li class="list-group-item">{shows.show.premiered}-{shows.show.ended}</li>
+          </ul>
+          </div>
+        </div>
+      
     </>
   );
 };
