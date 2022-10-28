@@ -29,13 +29,7 @@ function App() {
 
   useEffect(() => {
     handleFetching(url, setShows, setIsLoading);
-    // const fetchShow = async () => {
-    //   const response = await axios(
-    //     `https://api.tvmaze.com/search/shows?q=${searchInput}}`
-    //   );
-    //   setShows(response.data);
-    // };
-    // fetchShow();
+
     return () => {
       setSubmitSearch(false);
     };
@@ -59,6 +53,22 @@ function App() {
       <hr />
       <div className="page-body">
         <CardGrid shows={shows} />
+      <div className="page-body container">
+        <ul>
+          {!isLoading &&
+            shows.map((show) => {
+              return (
+                <div className="card">
+                  {/* <Card show={show} /> */}
+                  <li key={show.show.id}>
+                    <img src={show.show?.image?.medium} />
+                    <p>{show.show.name}</p>
+                    <p>{show.show.language}</p>
+                  </li>
+                </div>
+              );
+            })}
+        </ul>
       </div>
       <Footer />
     </div>
