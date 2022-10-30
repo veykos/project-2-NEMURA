@@ -5,7 +5,7 @@ import axios from "axios";
 import Search from "./Components/Search.jsx";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
-// import Card from "./Components/Card";
+import Recomended from "./Components/ratingSection/Recomended";
 import CardGrid from "./Components/cards/CardGrid";
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
       .get(url)
       .then((resp) => {
         setResp(resp.data);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false);
+        setIsLoading(false);
       });
   };
   const [shows, setShows] = useState([]);
@@ -29,13 +29,7 @@ function App() {
 
   useEffect(() => {
     handleFetching(url, setShows, setIsLoading);
-    // const fetchShow = async () => {
-    //   const response = await axios(
-    //     `https://api.tvmaze.com/search/shows?q=${searchInput}}`
-    //   );
-    //   setShows(response.data);
-    // };
-    // fetchShow();
+
     return () => {
       setSubmitSearch(false);
     };
@@ -59,6 +53,9 @@ function App() {
       <hr />
       <div className="page-body">
         <CardGrid shows={shows} />
+      </div>
+      <div>
+        <Recomended shows={shows} />
       </div>
       <Footer />
     </div>
