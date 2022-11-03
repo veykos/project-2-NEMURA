@@ -5,6 +5,7 @@ import axios from "axios";
 import Search from "./Components/Search.jsx";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
+import Recomended from "./Components/ratingSection/Recomended";
 import CardGrid from "./Components/cards/CardGrid";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
       }))
       .catch((error) => {
         console.log(error);
-        setLoading(false);
+        setIsLoading(false);
       });
   };
   const [shows, setShows] = useState([]);
@@ -71,6 +72,9 @@ function App() {
       <h2>People</h2>
       <div className="page-body">
         <CardGrid shows={shows} />
+      </div>
+      <div>
+        <Recomended shows={shows} />
       </div>
       <Footer />
     </div>
