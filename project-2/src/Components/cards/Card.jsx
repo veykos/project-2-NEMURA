@@ -1,42 +1,8 @@
 import React from "react";
 // import Modal from "./Modal";
 import "./cards.css";
+import image from "../../assets/Image_not_available.png";
 
-const CardTitles = ({ show }) => {
-  // if (show.show.network || show.show.network.name)  {
-  //   `Network: ${show.show.network.name}`|| "not available";
-
-
-  // }
-  return (
-    
-    <>
-      <div className="card">
-        <div className="card-body">
-          <div className="cardImg-container">
-            <img className="card-img" alt = "no image available" src={show.show?.image?.medium || show.person?.image?.medium} />
-            {/* <img className="card-img" src={show.person?.image?.medium } /> */}
-            {/* show.show?.image?.medium || show.person?.image?.medium */}
-          </div>
-          <div className="card-name">
-            <p>{show.show?.name || show.person?.name} </p>
-            {/* <p>{show.person?.name}</p> */}
-            {/* show.show?.name|| show.person?.name*/}
-            <p>{show.show?.network ?`Network: ${show.show.network.name}`  : (show.show?.network?.name || show.person?.gender)===false  ? "no info" : show.person?.gender==="Male" ? "Actor" : "Actress"}</p>
-          </div>
-        </div>
-        <div className="card-info">
-          <div>
-            {/* <p>{show.show.network && show.show.network.name ? show.show.network.name : ""}</p> */}
-            <p>
-              {/* {show.show.premiered}/{show.show.ended} */}
-            </p>
-            </div>
-        </div>
-      </div>
-    </>
-  );
-};
 
 const Card = ({ show }) => {
   const ratingConditional = (rating) => {
@@ -63,17 +29,17 @@ const Card = ({ show }) => {
     <>
       <div className="card">
         <div className="card-image">
-          <img className="card-img" src={show.show?.image?.medium} />
+          <img className="card-img" src={show.show?.image ? show.show?.image?.medium : image} />
         </div>
         <div className="card-info">
-          <p>{show.show.name}</p>
+          <p>{show.show?.name}</p>
           <p>
             <strong>Network: </strong>
-            {show.show.network?.name}
+            {show.show.network && show.show.network.name ? show.show.network.name : "not available"}
           </p>
           <p>
             <strong> </strong>
-            {ratingConditional(Math.round(show.show.rating.average))}
+            {ratingConditional(Math.round(show.show?.rating?.average))}
           </p>
           {/* <p>
             {show.show.premiered}-{show.show.ended}
@@ -113,4 +79,4 @@ const Card = ({ show }) => {
 // };
 // , CardPeople
 
-export default {CardTitles, Card};
+export default Card;

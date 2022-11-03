@@ -5,6 +5,9 @@ body {
   background-color: #403f4c;
   /* background: linear-gradient(#524c4c, #8e7c7c); */
 }
+h2 {
+  color:white
+}
 .hero {
   background-image: url("https://images.pexels.com/photos/4009603/pexels-photo-4009603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   /* max-height: 200%; */

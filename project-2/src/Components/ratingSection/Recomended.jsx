@@ -1,14 +1,14 @@
-import React from "react";
-import "./recomended.css";
+// import React from "react";
+// import "./recomended.css";
 
-const Recomended = ({ shows }) => {
-  return (
-    <section className="rec-section">
-      {shows.map((item) => {
-        <p>{item}</p>;
-      })}
-    </section>
-  );
-};
+// const Recomended = ({ shows }) => {
+//   return (
+//     <section className="rec-section">
+//       {shows.map((item) => {
+//         <p>{item}</p>;
+//       })}
+//     </section>
+//   );
+// };
 
-export default Recomended;
+// export default Recomended;

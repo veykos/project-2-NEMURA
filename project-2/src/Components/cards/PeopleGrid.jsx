@@ -3,15 +3,15 @@ import Card from "./Card";
 import CardPeople from "./CardPeople";
 import "./cards.css";
 
-const CardGrid = ({ shows, isLoading }) => {
-  return isLoading ? (
-    `loading...`
-  ) : (
-      <section className="cards-section">
-        {shows.map((show) => {
-          return (
-            <>
-              <Card key={ show.show?.id} show={show} />
+const PeopleGrid = ({ people, isLoading }) => {
+    return isLoading ? (
+      `loading...`
+    ) : (
+        <section className="cards-section">
+        {people.map((people) => {
+            return (
+              <>
+              <CardPeople key={ people.person} people={people} />
               {/* show.show.id ||  show.person  */}
               {/* <Card shows={show} /> */}
               {/* <li key={show.show.id}>
@@ -21,11 +21,10 @@ const CardGrid = ({ shows, isLoading }) => {
                   </li> */}
               {/* <Card key={show.person} show={show} /> */}
             </>
-           
           );
         })}
-      </section>
-  );
+        </section>
+      );
 };
-
-export default CardGrid;
+    
+export default PeopleGrid;
