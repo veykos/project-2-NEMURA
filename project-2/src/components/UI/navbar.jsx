@@ -44,16 +44,13 @@ export const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="#">
-              TOP CATEGORIES
+              TOP 20
             </a>
             <a class="nav-item nav-link" href="#">
               MY FAVOURITES <span class="sr-only">(current)</span>
             </a>
             <a class="nav-item nav-link" href="#">
-              TOP 20 SERIES
-            </a>
-            <a class="nav-item nav-link" href="#">
-              BOTTOM 20 SERIES
+              ABOUT
             </a>
           </div>
         </div>
