@@ -5,17 +5,26 @@ import axios from "axios";
 import Search from "./Components/Search.jsx";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
-// import Card from "./Components/Card";
 import CardGrid from "./Components/cards/CardGrid";
 
 function App() {
-  const handleFetching = async (url, setResp, setLoading) => {
-    axios
-      .get(url)
-      .then((resp) => {
-        setResp(resp.data);
+  const handleFetching = async (setResp, setLoading) => {
+    Promise.all(urls.map((url)=> axios.get(url)))
+      .then(axios.spread((...allData)=> {
+        // console.log(resp[0].data);
+        const arr1 = allData[0].data;
+        const length= arr1.length;
+        console.log(length);
+        const arr2 = allData[1].data;
+        Array.prototype.push.apply(arr1,arr2); 
+        // setResp(allData.map((resp)=>resp.data));
+        setResp(arr1);
+       
+        // && resp[1].data
+        // setResp(resp[1].data);
+        console.log(arr1);
         setLoading(false);
-      })
+      }))
       .catch((error) => {
         console.log(error);
         setLoading(false);
@@ -25,15 +34,20 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("house");
   const [submitSearch, setSubmitSearch] = useState(false);
-  const url = `https://api.tvmaze.com/search/shows?q=${searchInput}`;
+
+  const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
+  // const promise1 = axios.get(url1);
+  // const promise2 = axios.get(url2);
 
   useEffect(() => {
-    handleFetching(url, setShows, setIsLoading);
+    handleFetching(setShows, setIsLoading);
 
     return () => {
       setSubmitSearch(false);
     };
   }, [submitSearch]);
+  console.log(submitSearch, "submitSearch");
+  console.log(shows, "shows");
 
   return (
     <div className="App">
@@ -41,6 +55,7 @@ function App() {
         <Navbar />
       </header>
       <div className="hero">
+
         <Search
           submitSearch={submitSearch}
           setSubmitSearch={setSubmitSearch}
@@ -49,27 +64,15 @@ function App() {
         />
       </div>
       <hr />
+      <h2>Titles</h2>
       <div className="page-body">
         <CardGrid shows={shows} />
-      <div className="page-body container">
-        <ul>
-          {!isLoading &&
-            shows.map((show) => {
-              return (
-                <div className="card">
-                  {/* <Card show={show} /> */}
-                  <li key={show.show.id}>
-                    <img src={show.show?.image?.medium} />
-                    <p>{show.show.name}</p>
-                    <p>{show.show.language}</p>
-                  </li>
-                </div>
-              );
-            })}
-        </ul>
+      </div>
+      <h2>People</h2>
+      <div className="page-body">
+        <CardGrid shows={shows} />
       </div>
       <Footer />
-    </div>
     </div>
   );
 }

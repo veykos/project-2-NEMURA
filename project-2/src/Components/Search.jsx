@@ -10,6 +10,7 @@ const Search = ({
   const handelSearch = (e) => {
     e.preventDefault();
     setSubmitSearch(true);
+    searchInput = "";
   };
 
   return (

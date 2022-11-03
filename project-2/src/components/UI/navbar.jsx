@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import { useEffect } from "react";
 import "./navbar.css";
-import logo from "./nemura-low-resolution-logo-color-on-transparent-background (2).png";
+import logo from "./nemura-low-resolution-logo-white-on-transparent-background.png";
 
 
 
@@ -32,17 +32,17 @@ export const Navbar = () => {
   return (
     
   <div className={ navbar ? "nav-true" : "nav-false"} >
-  <nav class="navbar fixed-top navbar-expand-xl navbar-light">
+  <nav className="navbar fixed-top navbar-expand-xl navbar-light">
     <img src={logo} alt="Logo"/>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">TOP CATEGORIES</a>
-      <a class="nav-item nav-link" href="#">MY FAVOURITES <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">TOP 20 SERIES</a>
-      <a class="nav-item nav-link" href="#">BOTTOM 20 SERIES</a>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+      <a className="nav-item nav-link" href="#">TOP CATEGORIES</a>
+      <a className="nav-item nav-link" href="#">MY FAVOURITES <span className="sr-only">(current)</span></a>
+      <a className="nav-item nav-link" href="#">TOP 20 SERIES</a>
+      <a className="nav-item nav-link" href="#">BOTTOM 20 SERIES</a>
     </div>
   </div>
 </nav>
