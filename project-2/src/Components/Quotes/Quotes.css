@@ -11,6 +11,10 @@ blockquote{
   line-height:1.6;
   position: relative;
   background:#EDEDED;
+  position: absolute;
+  top: 30%;
+  left: 22%;
+  opacity: 0.6;
 }
 
 blockquote::before{
