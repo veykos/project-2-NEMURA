@@ -97,8 +97,8 @@ export const Navbar = () => {
   console.log(navbar);
   return (
     <div className={navbar ? "nav-true" : "nav-false"}>
-      <nav className="navbar fixed-top navbar-expand-xl navbar-light">
-      <Link to="/"><img src={logo} alt="Logo" /></Link>
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light">
+      <img src={logo} alt="Logo"/>
         <button
           className="navbar-toggler"
           type="button"
@@ -111,8 +111,11 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link className="nav-item nav-link" to="/my-favourites">
+          <div className="navbar-nav text-right">
+          <Link className="nav-item nav-link" to="/" >
+              HOME <span className="sr-only">(current)</span>
+            </Link>
+            <Link className="nav-item nav-link" to="/my-favourites" >
               MY FAVOURITES <span className="sr-only">(current)</span>
             </Link>
             <Link className="nav-item nav-link" to="/top-20-series">
@@ -124,10 +127,6 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-
-      {/* <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>*/}
     </div>
   );
 };
