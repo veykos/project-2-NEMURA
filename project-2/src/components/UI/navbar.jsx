@@ -72,10 +72,13 @@ import { useEffect } from "react";
 import "./navbar.css";
 import logo from "./logoWhite.png";
 import { Link } from "react-router-dom";
+import { useOuterClick } from "../../hooks/useOuterClick";
 
 export const Navbar = () => {
   //navbar scroll when active state
   const [navbar, setNavbar] = useState(false);
+  const [ref, isVisible, setIsVisible] = useOuterClick(true);
+  console.log(isVisible, "isVisible");
 
   //navbar scroll changeBackground function
   const changeBackground = () => {
@@ -97,9 +100,9 @@ export const Navbar = () => {
   console.log(navbar);
   return (
     <div className={navbar ? "nav-true" : "nav-false"}>
-      <nav className="navbar fixed-top navbar-expand-lg navbar-light">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light" ref={ref}>
       <img src={logo} alt="Logo"/>
-        <button
+        <button onClick={() => !isVisible && setIsVisible(true)}
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -110,8 +113,8 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav text-right">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup"  >
+         {isVisible &&  <div className="navbar-nav text-right" onClick={(e) => {e.stopPropagation();setIsVisible(false)}}>
           <Link className="nav-item nav-link" to="/" >
               HOME <span className="sr-only">(current)</span>
             </Link>
@@ -124,7 +127,7 @@ export const Navbar = () => {
             <Link className="nav-item nav-link" to="/about">
               ABOUT
             </Link>
-          </div>
+          </div>}
         </div>
       </nav>
     </div>
