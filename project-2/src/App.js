@@ -1,5 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
+// import React, { useState } from "react";
 // import { useEffect } from "react";
 // import axios from "axios";
 import { Home } from "./pages/Home";
@@ -9,7 +10,8 @@ import { About } from "./pages/About";
 // import Search from "./Components/Search.jsx";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
-import Recomended from "./Components/ratingSection/Recomended";
+// import Recomended from "./Components/ratingSection/Recomended";
+// import CardGrid from "./Components/cards/CardGrid";
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +28,10 @@ function App() {
 //   console.log(AnotherAPIResponse[0].person);
 // }
 
+
+
+  // useEffect(() => {
+  //   handleFetching(url, setShows, setIsLoading);
 //   const handleFetching = async (setLoading) => {
 //     // setResp, parantezin icinde yukarda
 //     Promise.all(urls.map((url)=> axios.get(url)))
@@ -124,11 +130,12 @@ function App() {
       <div className="page-body">
         <PeopleGrid people={people} />
       </div> */}
-      {/* <div>
+       {/* <div>
         <Recomended shows={shows} />
       </div> */}
+      </div>
       <Footer />
-    </div>
+    {/* </div> */}
     </Router>
   );
 }

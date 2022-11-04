@@ -48,6 +48,7 @@ export const Home = () => {
 
     return (
         <div>
+            
             <div className="hero">
 
                 <Search
