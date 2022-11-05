@@ -1,26 +1,23 @@
 import React from "react";
-import Card from "../Card";
+import Card from "./Card";
 import "./cards.css";
 
-const CardGrid = ({ shows }) => {
-  return (
-    <div>
+const CardGrid = ({ shows, isLoading }) => {
+  return isLoading ? (
+    `loading...`
+  ) : (
       <section className="cards-section">
+        {/* <h2>Titles</h2> */}
+
         {shows.map((show) => {
+
           return (
             <>
-              <Card key={show.show.id} show={show} />
-              {/* <Card shows={show} /> */}
-              {/* <li key={show.show.id}>
-                    <img src={show.show?.image?.medium} />
-                    <p>{show.show.name}</p>
-                    <p>{show.show.language}</p>
-                  </li> */}
+              <Card key={show.show?.id} show={show} />
             </>
           );
         })}
       </section>
-    </div>
   );
 };
 
