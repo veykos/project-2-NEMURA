@@ -14,8 +14,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("house");
   const [submitSearch, setSubmitSearch] = useState(false);
-
-  const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
+//   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
     
   async function fetchAll() {
       
@@ -48,9 +47,7 @@ export const Home = () => {
 
     return (
         <div>
-            
             <div className="hero">
-
                 <Search
                     submitSearch={submitSearch}
                     setSubmitSearch={setSubmitSearch}

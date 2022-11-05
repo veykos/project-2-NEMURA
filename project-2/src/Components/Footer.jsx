@@ -36,7 +36,7 @@ function Footer() {
         className="instagram social">
         <FontAwesomeIcon icon={faInstagram} size="2x" />
       </a>
-      <div class="row">
+      <div className="row">
         NEMURA Copyright © 2022  || Designed By: Nevin, Muly, Lera
     </div>
     </div>
