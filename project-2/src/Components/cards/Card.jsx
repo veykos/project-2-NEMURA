@@ -24,7 +24,7 @@ const Card = ({ show }) => {
       return "---";
     }
   };
-  console.log(show.show.rating.average);
+  // console.log(show.show.rating.average);
   return (
     <>
       <div className="card">
@@ -32,10 +32,9 @@ const Card = ({ show }) => {
           <img className="card-img" src={show.show?.image ? show.show?.image?.medium : image} />
         </div>
         <div className="card-info">
-          <p>{show.show?.name}</p>
+          <p className="result-name"><strong>{show.show?.name}</strong></p>
           <p>
-            <strong>Network: </strong>
-            {show.show.network && show.show.network.name ? show.show.network.name : "not available"}
+            Network: {show.show.network && show.show.network.name ? show.show.network.name : " Unknown"}
           </p>
           <p>
             <strong> </strong>

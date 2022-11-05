@@ -9,6 +9,7 @@ const CardPeople = ({ people }) => {
 
 
   // }
+
   return (
     
     <>
@@ -20,20 +21,21 @@ const CardPeople = ({ people }) => {
     
         </div>
         <div className="card-info">
-            <p>{people.person?.name} </p>
+            <p className="result-name"><strong>{people.person?.name}</strong> </p>
             {/* <p>{show.person?.name}</p> */}
             {/* show.show?.name|| show.person?.name*/}
             <p>{people.person?.gender ?  people.person?.gender==="Male" ? "Actor" : "Actress" : "Actor/Actress"}</p>
+            <p>Country: {people.person?.country?.name ? people.person.country.name : " Unknown"}</p>
         </div>
         
-        <div className="card-info">
-            <div>
+        {/* <div className="card-info">
+            <div> */}
             {/* <p>{show.show.network && show.show.network.name ? show.show.network.name : ""}</p> */}
-                <p>
+                {/* <p> */}
               {/* {show.show.premiered}/{show.show.ended} */}
-                </p>
-            </div>
-        </div>
+                {/* </p> */}
+            {/* </div>
+        </div> */}
       </div>
     </>
   );

@@ -59,11 +59,17 @@ export const Home = () => {
                 />
             </div>
             <hr />
-            <h2>Titles</h2>
+            <div className="headlines">
+                <h2>Titles</h2>
+                <hr></hr>
+            </div>
             <div className="page-body">
                 <CardGrid shows={shows} />
             </div>
-            <h2>People</h2>
+            <div className="headlines">
+                <h2>People</h2>
+                <hr></hr>
+            </div>
             <div className="page-body">
                 <PeopleGrid people={people} />
             </div>

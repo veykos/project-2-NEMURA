@@ -9,6 +9,7 @@
   justify-items: center;
   /* align-self: flex-start; */
   align-items: flex-start;
+  margin-bottom: 100px;
 
   /* justify-content: center; */
 }
@@ -39,6 +40,7 @@
   padding: 5px;
   cursor: pointer;
   object-position: center;
+  box-shadow: 5px 5px 15px 5px #1d1818;
 }
 
 .card:hover {
@@ -63,5 +65,11 @@
   text-align: center;
   padding: 20px;
   /* max-width: 80%; */
+}
+
+.result-name {
+  font-size: larger;
+  text-decoration: underline;
+  text-decoration-style: double;
 }
 

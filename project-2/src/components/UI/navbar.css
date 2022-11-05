@@ -21,23 +21,23 @@ img {
 }
 
 .navbar-collapse {
- justify-content: center;
+ justify-content: end;
 }
 
 .navbar-light .navbar-nav .nav-link {
   padding-left: 50px;
   color: white;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color:  #808080 !important;
+  color:  bisque !important;
 }
 
 .navbar-light .navbar-nav .nav-link:focus {
-  color:  #808080 !important;
+  color:  bisque!important;
 }
 
 .navbar-toggler {
