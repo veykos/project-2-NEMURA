@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
 import "./cards.css";
+import { Link } from "react-router-dom";
 
 const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
@@ -13,7 +14,9 @@ const CardGrid = ({ shows, isLoading }) => {
       {shows.map((show) => {
         return (
           <>
-            <Card key={show.show?.id} show={show} />
+            <Link to={"/CurrentPage/" + show.show.name}>
+              <Card key={show.show?.id} show={show} />
+            </Link>
           </>
         );
       })}
