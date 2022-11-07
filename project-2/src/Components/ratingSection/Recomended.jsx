@@ -2,6 +2,7 @@
 // import "./recomended.css";
 
 
+
 // const Recomended = ({ shows }) => {
 //   return (
 //     <section className="rec-section">

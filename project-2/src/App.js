@@ -7,6 +7,7 @@ import { About } from "./pages/About";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import ResultsShow from "./pages/results/ResultsShow";
 // import Recomendedshows from "./Components/ratingSection/Recomended";
 
 
@@ -18,7 +19,7 @@ function App() {
         <header>
           <Navbar />
         </header>
-        
+
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/my-favourites" element={<MyFavourites/>} />
@@ -27,6 +28,7 @@ function App() {
         </Routes>
 
       {/* <Recomendedshows /> */}
+        {/* <ResultsShow/> */}
         <Footer />
       </div>
     </Router>
