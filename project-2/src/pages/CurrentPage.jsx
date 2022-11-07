@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+// import styled from "styled-components";
 
 import "./current.css";
 
@@ -13,20 +14,20 @@ const CurrentPage = () => {
     );
     const dataDetail = await data.json();
     setDetails(dataDetail);
-
-    console.error("somthing is wrong");
   };
 
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
-  console.log(details.image, "details");
+  console.log(details, "details");
   return (
     <>
       <div className="hero"></div>
       <section style={InfoWraper} className="show-info">
         <div className="header">
-          <div>{/* <img src={details} alt="" /> */}</div>
+          <div>
+            <img src={details.image?.original} alt="" />
+          </div>
           <h1>{details.name}</h1>
           <h2>{details.genres}</h2>
         </div>
