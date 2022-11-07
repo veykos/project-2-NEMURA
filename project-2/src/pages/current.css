@@ -1,0 +1,13 @@
+.show-info {
+  color: white;
+  width: 70%;
+  height: 500px;
+}
+
+/* .show-info > img {
+  object-fit: cover;
+} */
+.header {
+  height: 500px;
+  width: 500px;
+}

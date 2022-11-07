@@ -3,24 +3,21 @@ import CardPeople from "./CardPeople";
 import "./cards.css";
 
 const PeopleGrid = ({ people, isLoading }) => {
-  
-    return isLoading ? (
-      `loading...`
-    ) : (
-        <section className="cards-section">
-          
-          {/* <h2>People</h2> */}
-            
-        {people.map((people) => {
+  return isLoading ? (
+    `loading...`
+  ) : (
+    <section className="cards-section">
+      {/* <h2>People</h2> */}
 
-            return (
-              <>
-              <CardPeople key={ people.person} people={people} />
-            </>
-          );
-        })}
-        </section>
-      );
+      {people.map((people) => {
+        return (
+          <>
+            <CardPeople key={people.person.id} people={people} />
+          </>
+        );
+      })}
+    </section>
+  );
 };
-    
+
 export default PeopleGrid;
