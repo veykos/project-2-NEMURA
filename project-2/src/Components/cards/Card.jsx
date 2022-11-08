@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./cards.css";
 import image from "../../assets/Image_not_available.png";
 import { Navigate } from "react-router-dom";
+// import CurrentPage from "../../pages/CurrentPage";
 // import { Link } from "react-router-dom";
 
 const Card = ({ show }) => {

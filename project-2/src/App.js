@@ -26,11 +26,11 @@ function App() {
           <Route path="/my-favourites" element={<MyFavourites />} />
           <Route path="/top-20-series" element={<Top20 />} />
           <Route path="/schedule" element={<Schedule />} />
-          <Route path="/CurrentPage/:name" element={<CurrentPage />} />
+          <Route path="/CurrentPage/:id" element={<CurrentPage />} />
           <Route path="/about" element={<About />} />
         </Routes>
 
-      {/* <Recomendedshows /> */}
+        {/* <Recomendedshows /> */}
         {/* <ResultsShow/> */}
         <Footer />
       </div>

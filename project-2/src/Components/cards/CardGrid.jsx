@@ -14,7 +14,7 @@ const CardGrid = ({ shows, isLoading }) => {
       {shows.map((show) => {
         return (
           <>
-            <Link to={"/CurrentPage/" + show.show.name}>
+            <Link to={"/CurrentPage/" + show.show.id}>
               <Card key={show.show?.id} show={show} />
             </Link>
           </>
