@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import Card from "./Card";
 import "./cards.css";
+import { Link } from "react-router-dom";
 
 const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
     `loading...`
   ) : (
-      <section className="cards-section">
-        {/* <h2>Titles</h2> */}
+    <div>
+    <h2 className="headlines">{shows.length ? "Titles" : null}</h2>
+    <hr></hr>
+    <section className="cards-section">
 
-        {shows.map((show) => {
-
-          return (
-            <>
+      {shows.map((show) => {
+        return (
+          <>
+            <Link to={"/CurrentPage/" + show.show.id}>
               <Card key={show.show?.id} show={show} />
-            </>
-          );
-        })}
-      </section>
+            </Link>
+          </>
+        );
+      })}
+    </section>
+    </div>
   );
 };
 
 export default CardGrid;
+
+
+
