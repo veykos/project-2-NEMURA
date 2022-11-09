@@ -1,7 +1,6 @@
 import React from "react";
 import "./cards.css";
 import image from "../../assets/Image_not_available.png";
-// import Modal from "./Modal";
 
 const CardPeople = ({ people }) => {
 

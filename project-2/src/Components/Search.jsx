@@ -16,7 +16,7 @@ const Search = ({
   return (
     <div className="heading">
       
-      <form onSubmit={handelSearch} className="search-form">
+    
       <h2 className="headingtext">Unlimited TV shows and much more.</h2>
         <input
           placeholder="Search for TV shows or people..."
@@ -30,7 +30,7 @@ const Search = ({
         <button onClick={handelSearch} className="btn btn-primary">
           Search
         </button>
-      </form>
+      
     </div>
   );
 };

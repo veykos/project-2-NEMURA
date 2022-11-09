@@ -6,7 +6,7 @@ import { Top20 } from "./pages/Top20";
 import { About } from "./pages/About";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
-import ResultsShow from "./pages/results/ResultsShow";
+import ResultsShow from "./pages/results/CastGrid";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CurrentPage from "./pages/CurrentPage";
 import Schedule from "./pages/Schedule";

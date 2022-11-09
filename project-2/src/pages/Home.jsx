@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "../App.css";
+import ResultsCast from "./results/CastGrid";
 
 export const Home = () => {
     
@@ -56,20 +57,13 @@ export const Home = () => {
                 />
             </div>
             <hr />
-            <div className="headlines">
-                <h2>Titles</h2>
-                <hr></hr>
-            </div>
             <div className="page-body">
                 <CardGrid shows={shows} />
-            </div>
-            <div className="headlines">
-                <h2>People</h2>
-                <hr></hr>
             </div>
             <div className="page-body">
                 <PeopleGrid people={people} />
             </div>
+            {/* <ResultsCast/> */}
         </div>
     );
 };
