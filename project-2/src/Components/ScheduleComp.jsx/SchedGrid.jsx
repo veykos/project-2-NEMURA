@@ -8,7 +8,7 @@ let month = `${today.getMonth() + 1 < 10 ? "0" : ""}${today.getMonth()}`;
 console.log(month);
 let year = today.getFullYear();
 console.log(year);
-let currentDate = `${year}/${month}/${day}`;
+let currentDate = `${year}-${month}-${day}`;
 console.log(currentDate);
 
 const SchedGrid = () => {
@@ -17,9 +17,12 @@ const SchedGrid = () => {
   const URL = `https://api.tvmaze.com/schedule/web?date=${currentDate}&country=US`;
   const getSchedule = async (url, setResp) => {
     fetch(URL).then((resp) => {
-      resp.json().then((data) => {
-        setResp(data);
-      });
+      resp
+        .json()
+        .then((data) => {
+          setResp(data);
+        })
+        .catch((err) => console.log(err));
     });
   };
   useEffect(() => {
@@ -30,9 +33,9 @@ const SchedGrid = () => {
   return (
     <section>
       <ul>
-        {schedule.map((date) => {
+        {/* {schedule.map((date) => {
           return <li key={date.id}>{date.name} </li>;
-        })}
+        })} */}
       </ul>
     </section>
   );

@@ -44,20 +44,27 @@ const CurrentPage = () => {
       ? poster[0]?.resolutions.original.url
       : showImage[0]?.resolutions.original.url});
     background-size: cover;
-    object-fit: fit;
+    object-fit: cover;
+    text-align: center;
     height: 700px;
     flex: 1;
     // border: 2px solid yellow;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #1d1818;
+    // min-width: 100%;
   `;
   const Wraper = styled.section`
-    display: flex;
+    display: grid;
     // margin-top: 400px;
     // background-color: green;
     // width: 100vw;
     padding: 20px;
     margin-bottom: 50px;
+    justify-content: center;
+    grid-template-columns: 400px 40%;
+    gap: 2rem;
+    align-items: center;
+    // grid-area: photo;
   `;
 
   const Content = styled.div`
@@ -71,6 +78,8 @@ const CurrentPage = () => {
     opacity: 0.8;
     color: white;
     box-shadow: 5px 5px 15px 5px #1d1818;
+    height: 700px;
+    // width: 300px !important;
   `;
 
   const Container = styled.section`
@@ -102,16 +111,23 @@ const CurrentPage = () => {
 
           <Content>
             <h1>{details.name}</h1>
-            <strong>{details.genres !== [] ? "Genres: " : ""}</strong>
-            <p>{details.genres ? details.genres.join(" ") : ""}</p>
-            <strong>Language: </strong>
-            {details.language}
-            <br />
-            <strong>{details.network ? "Network: " : null}</strong>
-            {details.network?.name ? details.network.name : "Unknown"}
-            <br />
+            <p>
+              <strong>{details?.genres?.length ? "Genres: " : null}</strong>
+              {details.genres ? details.genres.join(", ") : null}
+            </p>
             <p dangerouslySetInnerHTML={{ __html: Summary }}></p>
-            {/* <p>{details.rating.average}</p> */}
+            <p>
+              <strong>Language: </strong>
+              {details.language}
+            </p>
+            <p>
+              <strong>{details.network ? "Network: " : null}</strong>
+              {details.network?.name ? details.network.name : null}
+            </p>
+            <p>
+              <strong>{details?.rating?.average ? "Rating: " : null}</strong>
+              {details?.rating?.average ? details.rating.average : null}
+            </p>
           </Content>
         </Wraper>
       </div>
