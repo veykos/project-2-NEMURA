@@ -4,17 +4,20 @@ import "./cards.css";
 
 const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
-    `loading.....`
+    `loading...`
   ) : (
-    <section className="cards-section">
-      {shows.map((show) => {
-        return (
-          <>
-            <Card key={show.show.id} show={show} />
-          </>
-        );
-      })}
-    </section>
+      <section className="cards-section">
+        {/* <h2>Titles</h2> */}
+
+        {shows.map((show) => {
+
+          return (
+            <>
+              <Card key={show.show?.id} show={show} />
+            </>
+          );
+        })}
+      </section>
   );
 };
 

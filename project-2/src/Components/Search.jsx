@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 
 const Search = ({
   searchInput,
@@ -15,12 +14,13 @@ const Search = ({
   };
 
   return (
-    <div>
+    <div className="heading">
+      
       <form onSubmit={handelSearch} className="search-form">
+      <h2 className="headingtext">Unlimited TV shows and much more.</h2>
         <input
-          placeholder="Search for any tv show..."
+          placeholder="Search for TV shows or people..."
           type="text"
-          // value={searchInput}
           onChange={(e) => {
             setSearchInput(e.target.value);
           }}
