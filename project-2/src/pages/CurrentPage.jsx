@@ -94,7 +94,7 @@ const CurrentPage = () => {
     padding: 20px;
     margin-bottom: 50px;
     justify-content: center;
-    grid-template-columns: 400px 40%;
+    grid-template-columns: 35% 50%;
     gap: 2rem;
     align-items: center;
     // grid-area: photo;
