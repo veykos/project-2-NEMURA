@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 const Search = ({
   searchInput,
@@ -15,9 +16,8 @@ const Search = ({
 
   return (
     <div className="heading">
-      
-    
-      <h2 className="headingtext">Unlimited TV shows and much more.</h2>
+      <form onSubmit={handelSearch} className="search-form">
+        <h2 className="headingtext">Unlimited TV shows and much more.</h2>
         <input
           placeholder="Search for TV shows or people..."
           type="text"
@@ -27,10 +27,18 @@ const Search = ({
           className="search-input"
         />
         <br />
-        <button onClick={handelSearch} className="btn btn-primary">
-          Search
-        </button>
-      
+        <Link
+          className="test6"
+          to="section"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
+          <button onClick={handelSearch} className="btn btn-primary">
+            Search
+          </button>
+        </Link>
+      </form>
     </div>
   );
 };
