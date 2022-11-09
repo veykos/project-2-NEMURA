@@ -45,10 +45,11 @@ const CurrentPage = () => {
       : showImage[0]?.resolutions.original.url});
     background-size: cover;
     object-fit: fit;
-    height: 600px;
+    height: 700px;
     flex: 1;
     // border: 2px solid yellow;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #1d1818;
   `;
   const Wraper = styled.section`
     display: flex;
@@ -56,6 +57,7 @@ const CurrentPage = () => {
     // background-color: green;
     // width: 100vw;
     padding: 20px;
+    margin-bottom: 50px;
   `;
 
   const Content = styled.div`
@@ -68,6 +70,7 @@ const CurrentPage = () => {
     border-radius: 10px;
     opacity: 0.8;
     color: white;
+    box-shadow: 5px 5px 15px 5px #1d1818;
   `;
 
   const Container = styled.section`
@@ -83,7 +86,9 @@ const CurrentPage = () => {
     // background-opacity: 0.5;
 
     padding: 100px;
+    box-shadow: 5px 5px 15px 5px #1d1818;
   `;
+  const Summary = details.summary;
 
   return (
     <>
@@ -97,14 +102,15 @@ const CurrentPage = () => {
 
           <Content>
             <h1>{details.name}</h1>
-            <strong>Ganre:</strong> <p>{details.genres} </p>
-            <strong>language:</strong>
+            <strong>{details.genres !== [] ? "Genres: " : ""}</strong>
+            <p>{details.genres ? details.genres.join(" ") : ""}</p>
+            <strong>Language: </strong>
             {details.language}
             <br />
-            <strong>network:</strong>
-            {/* {details.network} */}
+            <strong>{details.network ? "Network: " : null}</strong>
+            {details.network?.name ? details.network.name : "Unknown"}
             <br />
-            {details.summary}
+            <p dangerouslySetInnerHTML={{ __html: Summary }}></p>
             {/* <p>{details.rating.average}</p> */}
           </Content>
         </Wraper>
