@@ -33,7 +33,7 @@ export const Home = () => {
         console.log(error)
     }
 }
-
+    console.log(shows)
   useEffect(() => {
     fetchAll();
 
