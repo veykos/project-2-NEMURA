@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import "./current.css";
@@ -9,7 +9,18 @@ const CurrentPage = () => {
   const params = useParams();
   const [details, setDetails] = useState({});
   const [cast, setCast] = useState([]);
-  const [isloading, setIsloading] = useState(true);
+  const [loading, setLoading] = useState(true);
+
+  // loading function
+  useEffect(() => {
+    // setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   const [showImage, setShowImage] = useState([]);
 
@@ -22,13 +33,13 @@ const CurrentPage = () => {
     const ID = dataDetail.id;
     console.log(ID, "ID");
 
-    const dataCast = await fetch(`https://api.tvmaze.com/shows/${ID}?embed=cast`);
+    const dataCast = await fetch(
+      `https://api.tvmaze.com/shows/${ID}?embed=cast`
+    );
     const castInfo = await dataCast.json();
     setCast(castInfo._embedded.cast);
     // console.log(castInfo)
-    setIsloading(false);
-    
-
+    // setLoading(false);
   };
   const fetchImages = async () => {
     const data = await fetch(
@@ -49,14 +60,10 @@ const CurrentPage = () => {
   //   setCast(dataCast);
   //   setIsloading(false);
 
-
-
   // };
   // console.log(cast, 'castdetail');
 
-
   useEffect(() => {
-       
     fetchDetails();
     fetchImages();
   }, [params.id]);
@@ -134,37 +141,57 @@ const CurrentPage = () => {
 
   return (
     <>
-      <div>
-        <div className="hero2"></div>
-        <Container></Container>
-        <Wraper>
-          <Hero>
-            {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
-          </Hero>
+      {/* <div> */}
+      {loading ? (
+        // <div className="loader-container" />
+        <div class=" loader-container"></div>
+      ) : (
+        <>
+          <div className="hero2"></div>
+          <Container></Container>
+          {/* <div id="section1">Hi</div> */}
+          <Wraper>
+            <Hero>
+              {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
+            </Hero>
 
-          <Content>
-            <h1>{details.name}</h1>
-            <p>
-              <strong>{details?.genres?.length ? "Genres: " : null}</strong>
-              {details.genres ? details.genres.join(", ") : null}
-            </p>
-            <p dangerouslySetInnerHTML={{ __html: Summary }}></p>
-            <p>
-              <strong>Language: </strong>
-              {details.language}
-            </p>
-            <p>
-              <strong>{details.network ? "Network: " : null}</strong>
-              {details.network?.name ? details.network.name : null}
-            </p>
-            <p>
-              <strong>{details?.rating?.average ? "Rating: " : null}</strong>
-              {details?.rating?.average ? details.rating.average : null}
-            </p>
-          </Content>
-        </Wraper>
-        <Results cast={cast}/>
-      </div>
+            <Content>
+              <h1>{details.name}</h1>
+              <p>
+                {details.premiered?.slice(0, 4)} - {details.ended?.slice(0, 4)}
+              </p>
+              <p>
+                <strong>{details?.rating?.average ? "Rating: " : null}</strong>
+                {details?.rating?.average ? details.rating.average : null} / 10
+                ⭐️
+              </p>
+              <p>
+                <strong>{details?.genres?.length ? "Genres: " : null}</strong>
+                {details.genres ? details.genres.join(", ") : null}
+              </p>
+              <p dangerouslySetInnerHTML={{ __html: Summary }}></p>
+              <p>
+                <strong>Language: </strong>
+                {details.language}
+              </p>
+              <p>
+                <strong>{details.network ? "Network: " : null}</strong>
+                <a href={details.network?.officialSite}>
+                  {details.network?.name ? details.network.name : null}{" "}
+                </a>{" "}
+                , {details.network?.country?.code}
+                {/* {details.network?.officialSite} */}
+              </p>
+              <a href={details?.officialSite ? details?.officialSite : null}>
+                {details?.officialSite ? "Official site" : null}
+              </a>
+            </Content>
+          </Wraper>
+          <Results cast={cast} />
+        </>
+      )}
+
+      {/* </div> */}
     </>
   );
 };

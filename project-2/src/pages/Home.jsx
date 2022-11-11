@@ -13,7 +13,7 @@ export const Home = () => {
   const [people, setPeople] = useState([]);
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchInput, setSearchInput] = useState("house");
+  const [searchInput, setSearchInput] = useState("");
   const [submitSearch, setSubmitSearch] = useState(false);
   //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
@@ -58,14 +58,24 @@ export const Home = () => {
         />
         <div id="section" />
       </div>
+      {searchInput ? (
+        <>
+          <div className="page-body">
+            <CardGrid shows={shows} />
+          </div>
+          <div className="page-body">
+            <PeopleGrid people={people} />
+          </div>
+        </>
+      ) : (
+        <>
+          <SchedGrid />
+        </>
+      )}
+
       <hr />
-      <div className="page-body">
-        <CardGrid shows={shows} />
-      </div>
-      <div className="page-body">
-        <PeopleGrid people={people} />
-      </div>
-        {/* <ResultsCast/> */}
+
+      {/* <ResultsCast/> */}
       {/* <SchedGrid /> */}
     </div>
   );
