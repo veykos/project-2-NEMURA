@@ -58,19 +58,22 @@ export const Home = () => {
         />
        
       </div>
-      {/* <div id="section">
+      <div id="section">
       <div className="page-body">
         <CardGrid shows={shows} />
       </div>
       </div>
       {/* {!resultsLength && <h2 className="headlines" >No results found</h2>} */}
-      {/* {searchInput==="" ? null : !resultsLength && <h2 className="headlines" >No results found</h2>}
+      {searchInput==="" ? null : !resultsLength && <h2 className="headlines" >No results found</h2>}
       {/* for <strong>"{searchInput}"</strong> */}
-      {/* <div className="page-body">
+      <div className="page-body">
         <PeopleGrid people={people} />
       </div>
-        <ResultsCast/>  */}
-      {searchInput ? (
+          <SchedGrid />
+        {/* <ResultsCast/>  */}
+
+
+      {/* {searchInput ? (
         <>
           <div className="page-body">
             <CardGrid shows={shows} />
@@ -83,7 +86,7 @@ export const Home = () => {
         <>
           <SchedGrid />
         </>
-      )}
+      )} */}
 
       <hr />
 
