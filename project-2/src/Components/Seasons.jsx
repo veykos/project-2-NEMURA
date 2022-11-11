@@ -28,16 +28,16 @@ const Seasons = ({id, selected}) => {
         )
     } 
 
-    // useEffect(() => {
-    //     Filter()
-    // },[selected]);
-
     useEffect(() => {
         fetchEpisodes();
     }, []);
     console.log(episodes, "episodes");
 
-    return (Filter())
+    return (useEffect(() => {
+        Filter()
+    }, [selected]));
+
+    // return (Filter())
 
     // return isloading ? ( `loading...`) : (  
     //     <>
