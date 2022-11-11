@@ -8,7 +8,7 @@ const Seasons = ({id, selected}) => {
 
     const [episodes, setEpisodes] = useState([]);
     const [isloading, setIsloading] = useState(true);
-    console.log(selected, "yeni file")
+    console.log(selected, "selected")
 
     const fetchEpisodes = async () => {
         const dataEpisodes = await fetch(`https://api.tvmaze.com/shows/${id}/episodes`);
@@ -16,20 +16,38 @@ const Seasons = ({id, selected}) => {
         setEpisodes(episodeDetail);
         setIsloading(false);
     };
+    const Filter = () => {
+        return isloading ? ( `loading...`) : (  
+            <>
+            <div>
+                {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
+                    <li>{filteredEpisodes.id}</li>
+                ))}
+            </div>
+            </>
+        )
+    } 
+
+    // useEffect(() => {
+    //     Filter()
+    // },[selected]);
 
     useEffect(() => {
         fetchEpisodes();
     }, []);
     console.log(episodes, "episodes");
-    return isloading ? ( `loading...`) : (
-        <>
-        <div>
-            <div>
-                <p>{episodes[0].id}</p>
-            </div>
-        </div>
-        </>
-    )
+
+    return (Filter())
+
+    // return isloading ? ( `loading...`) : (  
+    //     <>
+    //     <div>
+    //         {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
+    //             <li>{filteredEpisodes.id}</li>
+    //         ))}
+    //     </div>
+    //     </>
+    // )
 }
 
 export default Seasons;

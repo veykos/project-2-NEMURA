@@ -5,7 +5,7 @@
   /* grid-template-columns: repeat(4, 1fr); */
   gap: 2rem;
   background-color: #403f4c;
-  padding: 20px;
+  padding: 20px 0;
   justify-content: center !important;
   justify-items: flex-start;
   /* width: 90%; */
