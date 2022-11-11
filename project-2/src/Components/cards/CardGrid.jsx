@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import Card from "./Card";
 import "./cards.css";
-import { Link } from "react-router-dom";
-// {shows.length && <div className="headlines">
-// <h2 className="titles">Titles</h2>
-// </div>}
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
+
 const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
     `loading...`
@@ -21,9 +20,14 @@ const CardGrid = ({ shows, isLoading }) => {
       {shows.map((show) => {
         return (
           <>
-            <Link to={"/CurrentPage/" + show.show.id}>
-              <Card key={show.show?.id} show={show} />
-            </Link>
+             <Link
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
+                to={"/CurrentPage/" + show.show.id}
+              >
+                <Card key={show.show?.id} show={show} />
+              </Link>
           </>
         );
       })}
