@@ -1,0 +1,29 @@
+.Top20 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    table {
+    /* border: 2px solid forestgreen; */
+    width: 90%;
+    height: 200px;
+    }
+    
+    th {
+    border-bottom: 1px solid black;
+    text-align: center;
+    }
+    
+    td {
+    text-align: center;
+    
+    }
+    .tab-genre {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
