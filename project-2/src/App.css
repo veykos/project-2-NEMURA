@@ -11,6 +11,7 @@ h2 {
   /* font-weight: bold; */
   /* padding-top: 50px; */
 }
+
 .headingtext {
   text-align: center;
   padding-bottom: 50px;
@@ -109,8 +110,18 @@ h2 {
   font-size: 1.5rem;
 }
 .headlines {
-  padding-left: 15px;
+  padding-left: 90px;
 }
+.titles {
+  padding-top: 100px;
+}
+/* #headlines {
+  padding-top: 40px;
+} cunku sonuc olmadiginda alan bos kaliyor */
+
+/* .page-body :first-child{
+  margin-top: 20px;
+} */
 
 /* For Mobile Version: */
 @media all and (max-width: 768px) {

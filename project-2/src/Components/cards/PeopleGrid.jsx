@@ -10,8 +10,8 @@ const PeopleGrid = ({ people, isLoading }) => {
     <div>
        <div className="headlines">
                 <h2>{people.length ? "People" : null}</h2>
-                <hr></hr>
             </div>
+          <div  className="mul">
     <section className="cards-section">
      {people.map((people) => {
         return (
@@ -21,6 +21,7 @@ const PeopleGrid = ({ people, isLoading }) => {
         );
       })}
     </section>
+    </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Cast from "./Cast";
 
 
 const Results = ({cast, isloading}) => {
-  // console.log(Array.isArray(cast), "casthhg")
+  console.log(cast, "cast")
   // if (!isloading) {
   //   console.log(cast, "load")
   // } else {
@@ -23,19 +23,20 @@ const Results = ({cast, isloading}) => {
            
         // </div>
         <div>
-<div className="headlines">
-         <h2>{cast.length ? "Cast" : null}</h2>
-         <hr></hr>
-     </div>
-<section className="cards-section">
-{cast.map((cast) => {
+          <div className="headlines">
+            <h2>{cast.length ? "Cast" : null}</h2>
+          </div>
+          <div  className="mul">
+          <section className="cards-section">
+            {cast.map((cast) => {
  return (
    <>
-     <Cast key={cast.character.id} cast={cast} />
+     <Cast key={cast.person.id} cast={cast} />
    </>
  );
 })}
 </section>
+</div>
 </div>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-
+import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "./current.css";
 import Results from "./results/CastGrid.jsx";
 
@@ -10,8 +10,11 @@ const CurrentPage = () => {
   const [details, setDetails] = useState({});
   const [cast, setCast] = useState([]);
   const [isloading, setIsloading] = useState(true);
+  const [seasons, setSeasons] = useState([]);
 
   const [showImage, setShowImage] = useState([]);
+
+ 
 
   const fetchDetails = async () => {
     const data = await fetch(`https://api.tvmaze.com/shows/${params.id}`);
@@ -26,10 +29,22 @@ const CurrentPage = () => {
     const castInfo = await dataCast.json();
     setCast(castInfo._embedded.cast);
     // console.log(castInfo)
-    setIsloading(false);
-    
 
+    const dataSeasons = await fetch(`https://api.tvmaze.com/shows/${params.id}/seasons`);
+    const seasonDetail = await dataSeasons.json();
+    setSeasons(seasonDetail);
+
+    setIsloading(false);
   };
+
+  // const fetchSeansons = async () => {
+  //   const dataSeasons = await fetch(`https://api.tvmaze.com/shows/${params.id}/seasons`);
+  //   const seasonDetail = await dataSeasons.json();
+  //   setSeasons(seasonDetail);
+  //   //
+
+  // };
+
   const fetchImages = async () => {
     const data = await fetch(
       `https://api.tvmaze.com/shows/${params.id}/images`
@@ -39,30 +54,18 @@ const CurrentPage = () => {
   };
   console.log(details);
 
-  //    const ID = details.id;
-  //   console.log(ID, "ID");
-  // const fetchCast = async () => {
-  //   const data = await fetch(
-  //     `https://api.tvmaze.com/shows/${ID}?embed=cast`
-  //   );
-  //   const dataCast = await data.json();
-  //   setCast(dataCast);
-  //   setIsloading(false);
-
-
-
-  // };
-  // console.log(cast, 'castdetail');
-
 
   useEffect(() => {
        
     fetchDetails();
     fetchImages();
+    // fetchSeansons();
+    console.log(seasons, "seasons");
   }, [params.id]);
   console.log(details, "details");
   console.log(params);
   console.log(showImage);
+  // console.log(seasons, "seasons");
 
   const background = showImage.filter((image) => {
     return image.type === "background";
@@ -79,12 +82,15 @@ const CurrentPage = () => {
     background-size: cover;
     object-fit: cover;
     text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 700px;
     flex: 1;
     // border: 2px solid yellow;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #1d1818;
     // min-width: 100%;
+    // overflow: hidden;
   `;
   const Wraper = styled.section`
     display: grid;
@@ -111,8 +117,9 @@ const CurrentPage = () => {
     opacity: 0.8;
     color: white;
     box-shadow: 5px 5px 15px 5px #1d1818;
-    height: 700px;
+    min-height: 700px;
     // width: 300px !important;
+    overflow: hidden;
   `;
 
   const Container = styled.section`
@@ -164,6 +171,7 @@ const CurrentPage = () => {
           </Content>
         </Wraper>
         <Results cast={cast}/>
+        <SelectSeasons seasons={seasons} id={params.id}/>
       </div>
     </>
   );
