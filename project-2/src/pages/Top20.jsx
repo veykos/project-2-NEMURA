@@ -81,7 +81,7 @@ export const Top20 = () => {
 
                 <table>
                     <thead>
-                        <tr>
+                        <tr className="titles">
                             <th>Name</th>
                             <th>Genre</th>
                             <th>Rating</th>
@@ -91,8 +91,8 @@ export const Top20 = () => {
                         {top.map((val, key) => {
                             return (
                                 <tr key={key}>
-                                    <td className="tab-name" ><img src={val.image.medium} />{val.name}</td>
-                                    <td className="tab-genre" >{val.genres.join(', ')}</td>
+                                    <td className="tab-name" ><img src={val.image.medium} /> {val.name}</td>
+                                    <td className="tab-genre" ><p className="pp">{val.genres.join(', ')}</p></td>
                                     <td className="tab-rating">⭐️{val.rating.average}</td>
                                 </tr>
                             )
