@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {SelectSeasons} from "./SelectSeasons";
-
+import image from "../assets/Image_not_available.png";
 
 
 const Seasons = ({id, selected}) => {
@@ -17,19 +17,50 @@ const Seasons = ({id, selected}) => {
         setIsloading(false);
     };
 
+    // const Filter = () => {
+    //     return isloading ? ( `loading...`) : (  
+    //         <>
+    //         <div>
+    //             {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
+    //                 <li>{filteredEpisodes.id}</li>
+    //             ))}
+    //         </div>
+    //         </>
+    //     )
+    // } 
+
     useEffect(() => {
         fetchEpisodes();
     }, []);
     console.log(episodes, "episodes");
-    return isloading ? ( `loading...`) : (
+
+    // return (useEffect(() => {
+    //     Filter()
+    // }, [selected]));
+
+    // return (Filter())
+    return isloading ? ( `loading...`) : (  
         <>
-        <div>
-            <div>
-                <p>{episodes[0].id}</p>
-            </div>
-        </div>
-        </>
-    )
-}
+             <div>
+            {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
+           <div className="card">
+             <div className="card-image">
+             <img className="card-img" alt = "image"  src={filteredEpisodes.image ? filteredEpisodes.image.medium  : image}/>
+         </div>
+         <div className="card-info">
+             <p className="result-name"><strong>{filteredEpisodes.name}</strong> </p>
+             <p>Episode number: {filteredEpisodes.number}</p>
+             <p>{filteredEpisodes.summary}</p>
+             <p>{filteredEpisodes.rating.average}</p>
+             <p>{filteredEpisodes.airdate}</p>
+             <p>{filteredEpisodes.runtime}</p>
+
+         </div>
+         </div>
+          ))}
+          </div>
+       </>
+            )
+      }
 
 export default Seasons;
