@@ -28,8 +28,8 @@
     } */
 table {
     margin: auto;
-    min-width: 300px;
-    max-width: 100%;
+    min-width: 500px;
+    max-width: 800px;
     border-collapse: collapse;
     width: 90%;
     /* height: 100vh;
