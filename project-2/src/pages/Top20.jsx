@@ -75,7 +75,7 @@ export const Top20 = () => {
             <div className="hero">
                 <Quotes />
             </div>
-            <h1>TOP 20</h1>
+            <h1 className="top50-heading">Top 50 TV-shows </h1>
 
             <div className="table">
 

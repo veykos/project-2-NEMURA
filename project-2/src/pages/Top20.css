@@ -89,3 +89,10 @@ tbody tr:hover {
 *{
     border: none;
 }
+
+.top50-heading {
+display: flex;
+justify-content: center;
+color: white;
+margin: 20px;
+}
