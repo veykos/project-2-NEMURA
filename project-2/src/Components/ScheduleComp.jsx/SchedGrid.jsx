@@ -15,7 +15,7 @@ const SchedGrid = () => {
   const [schedule, setSchedule] = useState([]);
 
   const URL = `https://api.tvmaze.com/schedule/web?date=${currentDate}&country=US`;
-  const getSchedule = async (url, setResp) => {
+  const getSchedule = async (URL, setResp) => {
     fetch(URL).then((resp) => {
       resp
         .json()
@@ -32,10 +32,19 @@ const SchedGrid = () => {
 
   return (
     <section>
+      <div className="schedule-container">
+        <h1>today</h1>
+      </div>
       <ul>
-        {/* {schedule.map((date) => {
-          return <li key={date.id}>{date.name} </li>;
-        })} */}
+        {schedule.map((date) => {
+          return (
+            <li style={{ color: "white" }} key={date.id}>
+              {/* <i src=`${date.image.medium}` /> */}
+              {date.name} :season - {date.season} episode - {date.number} Time -{" "}
+              {date.airstamp.slice(11, 17)}{" "}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

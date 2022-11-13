@@ -3,7 +3,7 @@ import Seasons from "./Seasons";
 
 const SelectSeasons = ({seasons, isloading, id}) => {
     const [selected, setSelected] = useState(1);
-    const selectedValue = (e) => setSelected(e.target.value);
+    const selectedValue = (e) => setSelected(Number(e.target.value));
     // console.log(selected);
     return isloading ? (
         `loading...`) : (

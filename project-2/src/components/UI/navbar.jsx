@@ -30,10 +30,18 @@ export const Navbar = () => {
   // console.log(navbar);
   return (
     <div className={navbar ? "nav-true" : "nav-false"}>
-      <nav className="navbar fixed-top navbar-expand-md navbar-light" >
-      {/* ref={ref} */}
-      <img src={logo} alt="Logo"/>
-      {/* onClick={() => !isVisible && setIsVisible(true)} */}
+      <nav className="navbar fixed-top navbar-expand-md navbar-light">
+        {/* ref={ref} */}
+
+        <Link
+          to={"/"}
+          onClick={() => {
+            window.scroll(0, 0);
+          }}
+        >
+          <img src={logo} alt="Logo" />
+        </Link>
+        {/* onClick={() => !isVisible && setIsVisible(true)} */}
         <button
           className="navbar-toggler"
           type="button"
@@ -45,13 +53,20 @@ export const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup"  >
-        {/*{isVisible &&  <div className="navbar-nav text-right"...></div> onClick={(e) => {e.stopPropagation();setIsVisible(false)}}} */}
-         <div className="navbar-nav text-right" >
-          <Link className="nav-item nav-link" to="/" >
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          {/*{isVisible &&  <div className="navbar-nav text-right"...></div> onClick={(e) => {e.stopPropagation();setIsVisible(false)}}} */}
+          <div className="navbar-nav text-right">
+            <Link
+              // on click go to the link and go to the top of the page
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+              className="nav-item nav-link"
+              to="/"
+            >
               HOME <span className="sr-only">(current)</span>
             </Link>
-            <Link className="nav-item nav-link" to="/my-favourites" >
+            <Link className="nav-item nav-link" to="/my-favourites">
               MY FAVOURITES <span className="sr-only">(current)</span>
             </Link>
             <Link className="nav-item nav-link" to="/top-20-series">

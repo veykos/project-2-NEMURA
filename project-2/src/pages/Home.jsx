@@ -69,7 +69,28 @@ export const Home = () => {
       <div className="page-body">
         <PeopleGrid people={people} />
       </div>
-        {/* <ResultsCast/> */}
+          <SchedGrid />
+        {/* <ResultsCast/>  */}
+
+
+      {/* {searchInput ? (
+        <>
+          <div className="page-body">
+            <CardGrid shows={shows} />
+          </div>
+          <div className="page-body">
+            <PeopleGrid people={people} />
+          </div>
+        </>
+      ) : (
+        <>
+          <SchedGrid />
+        </>
+      )} */}
+
+      <hr />
+
+      {/* <ResultsCast/> */}
       {/* <SchedGrid /> */}
     </div>
   );
