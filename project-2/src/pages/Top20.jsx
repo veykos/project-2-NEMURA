@@ -92,8 +92,8 @@ export const Top20 = () => {
                             return (
                                 <tr key={key}>
                                     <td className="tab-image"><img src={val.image.medium}/></td>
-                                    <td className="tab-name">{key + 1}. {val.name}</td>
-                                    <td className="tab-genre" ><p className="pp">{val.genres.join(', ')}</p></td>
+                                    <td className="tab-name"><a href={"/CurrentPage/" + val.id}>{key + 1}. {val.name}</a></td>
+                                    <td className="tab-genre" >{val.genres.join(', ')}</td>
                                     <td className="tab-rating">⭐️{val.rating.average}</td>
                                 </tr>
                             )
