@@ -22,6 +22,7 @@ h2 {
   justify-content: center;
   align-items: center;
   height: 650px;
+  flex-direction: column;
 }
 .hero {
   background-image: url("https://images.pexels.com/photos/4009603/pexels-photo-4009603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
@@ -108,7 +109,7 @@ h2 {
   font-size: 1.5rem;
 }
 .headlines {
-  padding: 15px;
+  padding-left: 15px;
 }
 
 /* For Mobile Version: */

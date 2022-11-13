@@ -8,8 +8,10 @@ const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
     `loading...`
   ) : (
+    <div>
+    <h2 className="headlines">{shows.length ? "Titles" : null}</h2>
+    <hr></hr>
     <section className="cards-section">
-      {/* <h2>Titles</h2> */}
 
       {shows.map((show) => {
         return (
@@ -21,7 +23,11 @@ const CardGrid = ({ shows, isLoading }) => {
         );
       })}
     </section>
+    </div>
   );
 };
 
 export default CardGrid;
+
+
+
