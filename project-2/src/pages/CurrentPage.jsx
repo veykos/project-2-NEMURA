@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "./current.css";
 import Results from "./results/CastGrid.jsx";
+import SelectSeasons from "../Components/SelectSeasons.jsx";
+import '@splidejs/splide/css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 const CurrentPage = () => {
   const params = useParams();
@@ -52,13 +54,6 @@ const CurrentPage = () => {
     // setLoading(false);
   };
 
-  // const fetchSeansons = async () => {
-  //   const dataSeasons = await fetch(`https://api.tvmaze.com/shows/${params.id}/seasons`);
-  //   const seasonDetail = await dataSeasons.json();
-  //   setSeasons(seasonDetail);
-  //   //
-
-  // };
 
   const fetchImages = async () => {
     const data = await fetch(
@@ -69,18 +64,6 @@ const CurrentPage = () => {
   };
   console.log(details);
 
-  //    const ID = details.id;
-  //   console.log(ID, "ID");
-  // const fetchCast = async () => {
-  //   const data = await fetch(
-  //     `https://api.tvmaze.com/shows/${ID}?embed=cast`
-  //   );
-  //   const dataCast = await data.json();
-  //   setCast(dataCast);
-  //   setIsloading(false);
-
-  // };
-  // console.log(cast, 'castdetail');
 
   useEffect(() => {
     fetchDetails();
@@ -164,6 +147,15 @@ const CurrentPage = () => {
     box-shadow: 5px 5px 15px 5px #1d1818;
   `;
   const Summary = details.summary;
+  console.log(showImage);
+  // const splide = new Splide( '.splide', {
+  //   type   : 'loop',
+  //   drag   : 'free',
+  //   snap   : true,
+  //   perPage: 3,
+  // } );
+  
+
 
   return (
     <>
@@ -215,6 +207,21 @@ const CurrentPage = () => {
           </Wraper>
           <Results cast={cast}/>
           <SelectSeasons seasons={seasons} id={params.id}/>
+          <section class="splide" aria-label="Splide Basic HTML Example">
+              <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 800, gap: '0.5rem',   type: 'loop', drag: 'free', snap: true, perPage: 3, breakpoints: { 480: {perPage: 1, gap: '.7rem'},}} }>
+
+          {showImage.map((img) => {
+            return (
+            
+              <SplideSlide>
+                  <a href={img.resolutions?.original?.url}><img className= "images" src={img.resolutions?.original?.url}  alt="Image 1"/></a>
+              </SplideSlide>
+            )
+          })}
+          
+              </Splide>
+          
+            </section>
         </>
       )}
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {SelectSeasons} from "./SelectSeasons";
 import image from "../assets/Image_not_available.png";
 
 
@@ -28,40 +27,12 @@ const Seasons = ({id, selected}) => {
         )
     } 
 
-    // const Filter = () => {
-    //     return isloading ? ( `loading...`) : (  
-    //         <>
-    //         <div>
-    //             {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
-    //                 <li>{filteredEpisodes.id}</li>
-    //             ))}
-    //         </div>
-    //         </>
-    //     )
-    // } 
-
-    // const Filter = () => {
-    //     return isloading ? ( `loading...`) : (  
-    //         <>
-    //         <div>
-    //             {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
-    //                 <li>{filteredEpisodes.id}</li>
-    //             ))}
-    //         </div>
-    //         </>
-    //     )
-    // } 
 
     useEffect(() => {
         fetchEpisodes();
     }, []);
     console.log(episodes, "episodes");
 
-    // return (useEffect(() => {
-    //     Filter()
-    // }, [selected]));
-
-    // return (Filter())
     return isloading ? ( `loading...`) : (  
         <>
              <div>
@@ -71,12 +42,16 @@ const Seasons = ({id, selected}) => {
              <img className="card-img" alt = "image"  src={filteredEpisodes.image ? filteredEpisodes.image.medium  : image}/>
          </div>
          <div className="card-info">
-             <p className="result-name"><strong>{filteredEpisodes.name}</strong> </p>
-             <p>Episode number: {filteredEpisodes.number}</p>
-             <p>{filteredEpisodes.summary}</p>
-             <p>{filteredEpisodes.rating.average}</p>
-             <p>{filteredEpisodes.airdate}</p>
-             <p>{filteredEpisodes.runtime}</p>
+             <p className="result-name"><strong>{filteredEpisodes.number}. {filteredEpisodes.name}</strong> </p>
+             <p dangerouslySetInnerHTML={{ __html: filteredEpisodes.summary }}></p>
+             <p>
+                <strong>Rating: </strong>
+                {filteredEpisodes.rating.average}/10
+                ⭐️
+              </p>
+             <p><strong>Airdate: </strong>{filteredEpisodes.airdate.split("-").reverse().join(".")}</p>
+             
+             <p><strong>Runtime: </strong>{filteredEpisodes.runtime}m</p>
 
          </div>
          </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import CardPeople from "./CardPeople";
 import "./cards.css";
+import { HashLink as Link } from "react-router-hash-link";
 
 const PeopleGrid = ({ people, isLoading }) => {
   return isLoading ? (
@@ -16,7 +17,15 @@ const PeopleGrid = ({ people, isLoading }) => {
      {people.map((people) => {
         return (
           <>
-            <CardPeople key={people.person.id} people={people} />
+            {/* <CardPeople key={people.person.id} people={people} /> */}
+            <Link
+             onClick={() => {
+               window.scroll(0, 0);
+             }}
+             to={"/PeoplePage/" + people.person.id}
+           >
+             <CardPeople key={people.person.id} people={people} />
+           </Link>
           </>
         );
       })}

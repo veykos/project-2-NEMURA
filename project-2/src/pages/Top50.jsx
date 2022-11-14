@@ -3,10 +3,10 @@ import "../App.css";
 import Quotes from "../Components/Quotes/Quotes"
 import axios from "axios"
 import { useMemo, useEffect, useState } from "react";
-import "./Top20.css";
+import "./Top50.css";
 
 
-export const Top20 = () => {
+export const Top50 = () => {
     const [top, setTop] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const urlTop = 'https://api.tvmaze.com/shows'
@@ -75,14 +75,14 @@ export const Top20 = () => {
             <div className="hero">
                 <Quotes />
             </div>
-            <h1>TOP 20</h1>
+            <h1>TOP 50</h1>
 
             <div className="table">
 
                 <table>
                     <thead>
                         <tr className="titles">
-                            <th>Name</th>
+                            <th>Title</th>
                             <th>Genre</th>
                             <th>Rating</th>
                         </tr>
