@@ -32,10 +32,7 @@ table {
     max-width: 800px;
     border-collapse: collapse;
     width: 90%;
-    /* height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
+    box-shadow: 5px 5px 15px 5px #1d1818;
 }
 
 
@@ -75,13 +72,6 @@ tbody tr:hover {
     vertical-align: baseline;
     border: none;
 }
-/* .tab-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-} */
-
 
 *{
     border: none;

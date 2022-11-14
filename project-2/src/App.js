@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Home } from "./pages/Home";
 import { MyFavourites } from "./pages/MyFavourites";
-import { Top20 } from "./pages/Top20";
+import { Top50 } from "./pages/Top50";
 import { About } from "./pages/About";
 import { Navbar } from "./Components/UI/navbar.jsx";
 import Footer from "./Components/Footer";
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/my-favourites" element={<MyFavourites />} />
-          <Route path="/top-20-series" element={<Top20 />} />
+          <Route path="/top-50-series" element={<Top50 />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/CurrentPage/:id" element={<CurrentPage />} />
           <Route path="/about" element={<About />} />

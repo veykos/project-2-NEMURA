@@ -3,10 +3,10 @@ import "../App.css";
 import Quotes from "../Components/Quotes/Quotes"
 import axios from "axios"
 import { useMemo, useEffect, useState } from "react";
-import "./Top20.css";
+import "./Top50.css";
 
 
-export const Top20 = () => {
+export const Top50 = () => {
     const [top, setTop] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const urlTop = 'https://api.tvmaze.com/shows'
@@ -75,7 +75,7 @@ export const Top20 = () => {
             <div className="hero">
                 <Quotes />
             </div>
-            <h1 className="top50-heading">Top 50 TV-shows </h1>
+            <h1 className="top50-heading">Top 50 TV Shows </h1>
 
             <div className="table">
 
@@ -91,8 +91,9 @@ export const Top20 = () => {
                         {top.map((val, key) => {
                             return (
                                 <tr key={key}>
-                                    <td className="tab-image"><img src={val.image.medium}/></td>
-                                    <td className="tab-name"><a href={"/CurrentPage/" + val.id}>{key + 1}. {val.name}</a></td>
+                                    <td className="tab-image"><a href={"/CurrentPage/" + val.id}><img src={val.image.medium}/></a></td>
+                                    <td className="tab-name">{key + 1}. <a href={"/CurrentPage/" + val.id}> {val.name} </a> ({val.premiered.slice(0, 4)} 
+                                    -{(val.ended || "now").slice(0, 4)})</td>
                                     <td className="tab-genre" >{val.genres.join(', ')}</td>
                                     <td className="tab-rating">⭐️{val.rating.average}</td>
                                 </tr>
