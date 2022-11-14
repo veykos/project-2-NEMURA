@@ -9,37 +9,31 @@ const CardGrid = ({ shows, isLoading }) => {
   return isLoading ? (
     `loading...`
   ) : (
-
     <section>
-      <div className="headlines" id="headlines" >
-                <h2>{shows.length ? "Titles" : null}</h2>
-            </div>
-    <div className="mul">
-    <div className="cards-section">
-
-      {shows.map((show) => {
-        return (
-          <>
-             <Link
-                onClick={() => {
-                  window.scroll(0, 0);
-                }}
-                to={"/CurrentPage/" + show.show.id}
-              >
-                <Card key={show.show?.id} show={show} />
-              </Link>
-          </>
-        );
-      })}
-    </div>
-    </div>
+      <hr></hr>
+      <div className="headlines" id="headlines">
+        <h2>{shows.length ? "Titles" : null}</h2>
+      </div>
+      <div className="mul">
+        <div className="cards-section">
+          {shows.map((show) => {
+            return (
+              <>
+                <Link
+                  onClick={() => {
+                    window.scroll(0, 0);
+                  }}
+                  to={"/CurrentPage/" + show.show.id}
+                >
+                  <Card key={show.show?.id} show={show} />
+                </Link>
+              </>
+            );
+          })}
+        </div>
+      </div>
     </section>
-    
   );
 };
 
 export default CardGrid;
-
-
-
-

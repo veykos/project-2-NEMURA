@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "./current.css";
@@ -18,15 +19,13 @@ const CurrentPage = () => {
     // setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 800);
+    }, 400);
     return () => {
       clearTimeout(timer);
     };
   }, []);
 
   const [showImage, setShowImage] = useState([]);
-
- 
 
   const fetchDetails = async () => {
     const data = await fetch(`https://api.tvmaze.com/shows/${params.id}`);
@@ -44,7 +43,9 @@ const CurrentPage = () => {
     setCast(castInfo._embedded.cast);
     // console.log(castInfo)
 
-    const dataSeasons = await fetch(`https://api.tvmaze.com/shows/${params.id}/seasons`);
+    const dataSeasons = await fetch(
+      `https://api.tvmaze.com/shows/${params.id}/seasons`
+    );
     const seasonDetail = await dataSeasons.json();
     setSeasons(seasonDetail);
 
@@ -146,6 +147,7 @@ const CurrentPage = () => {
     min-height: 700px;
     // width: 300px !important;
     overflow: hidden;
+    text-overflow: ellipsis;
   `;
 
   const Container = styled.section`
@@ -166,11 +168,20 @@ const CurrentPage = () => {
   const Summary = details.summary;
 
   return (
-    <>
+    <div>
       {/* <div> */}
       {loading ? (
         // <div className="loader-container" />
-        <div class=" loader-container"></div>
+        <div className="current-page-container">
+          <ClipLoader
+            color="white"
+            loading={loading}
+            // cssOverride={override}
+            size={100}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       ) : (
         <>
           <div className="hero2"></div>
@@ -180,7 +191,7 @@ const CurrentPage = () => {
             <Hero>
               {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
             </Hero>
-            
+
             <Content>
               <h1>{details.name}</h1>
               <p>
@@ -213,13 +224,13 @@ const CurrentPage = () => {
               </a>
             </Content>
           </Wraper>
-          <Results cast={cast}/>
-          <SelectSeasons seasons={seasons} id={params.id}/>
+          <Results cast={cast} />
+          <SelectSeasons seasons={seasons} id={params.id} />
         </>
       )}
 
       {/* </div> */}
-    </>
+    </div>
   );
 };
 

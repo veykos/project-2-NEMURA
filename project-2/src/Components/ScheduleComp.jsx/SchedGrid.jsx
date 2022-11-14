@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import SchedCard from "./SchedCard";
+import "./schedCard.css";
 
 const today = new Date();
 console.log(today);
@@ -35,17 +37,11 @@ const SchedGrid = () => {
       <div className="schedule-container">
         <h1>today</h1>
       </div>
-      <ul>
+      <>
         {schedule.map((date) => {
-          return (
-            <li style={{ color: "white" }} key={date.id}>
-              {/* <i src=`${date.image.medium}` /> */}
-              {date.name} :season - {date.season} episode - {date.number} Time -{" "}
-              {date.airstamp.slice(11, 17)}{" "}
-            </li>
-          );
+          return <SchedCard date={date} />;
         })}
-      </ul>
+      </>
     </section>
   );
 };
