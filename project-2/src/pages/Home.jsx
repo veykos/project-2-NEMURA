@@ -15,6 +15,7 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [searchInput, setSearchInput] = useState("house");
   const [submitSearch, setSubmitSearch] = useState(false);
+  const [favourites, setFavourites] = useState([]);
   //   const urls = [`https://api.tvmaze.com/search/shows?q=${searchInput}`, `https://api.tvmaze.com/search/people?q=${searchInput}`];
 
   async function fetchAll() {
@@ -43,6 +44,10 @@ export const Home = () => {
       setSubmitSearch(false);
     };
   }, [submitSearch]);
+  const addToFavourits = (movie) => {
+    const newFavoiriteList = [...favourites, movie];
+    setFavourites(newFavoiriteList);
+  };
 
   //   console.log(submitSearch, "submitSearch");
   //   console.log(shows, "shows");
@@ -57,6 +62,11 @@ export const Home = () => {
           setSearchInput={setSearchInput}
         />
       </div>
+      <MovieList
+        movies={movie}
+        handleFavoritesClick={newFavoiriteList}
+        favouriteComponent={AddToFAvourites}
+      />
       <div id="section">
         <div className="page-body">
           <CardGrid shows={shows} />
