@@ -75,14 +75,14 @@ export const Top50 = () => {
             <div className="hero">
                 <Quotes />
             </div>
-            <h1>TOP 50</h1>
+            <h1 className="top50-heading">Top 50 TV Shows </h1>
 
             <div className="table">
 
                 <table>
                     <thead>
                         <tr className="titles">
-                            <th>Title</th>
+                            <th colspan="2">Name</th>
                             <th>Genre</th>
                             <th>Rating</th>
                         </tr>
@@ -91,8 +91,10 @@ export const Top50 = () => {
                         {top.map((val, key) => {
                             return (
                                 <tr key={key}>
-                                    <td className="tab-name" ><img src={val.image.medium} /> {val.name}</td>
-                                    <td className="tab-genre" ><p className="pp">{val.genres.join(', ')}</p></td>
+                                    <td className="tab-image"><a href={"/CurrentPage/" + val.id}><img src={val.image.medium}/></a></td>
+                                    <td className="tab-name">{key + 1}. <a href={"/CurrentPage/" + val.id}> {val.name} </a> ({val.premiered.slice(0, 4)} 
+                                    -{(val.ended || "now").slice(0, 4)})</td>
+                                    <td className="tab-genre" >{val.genres.join(', ')}</td>
                                     <td className="tab-rating">⭐️{val.rating.average}</td>
                                 </tr>
                             )
