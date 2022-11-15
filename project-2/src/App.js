@@ -27,8 +27,8 @@ function App() {
           <Route path="/my-favourites" element={<MyFavourites />} />
           <Route path="/top-50-series" element={<Top50 />} />
           <Route path="/schedule" element={<Schedule />} />
-          <Route path="/CurrentPage/:id" element={<CurrentPage />} />
-          <Route path="/PeoplePage/:id" element={<PeoplePage />} />
+          <Route path="/shows/:name/:id" element={<CurrentPage />} />
+          <Route path="/people/:name/:id" element={<PeoplePage />} />
           <Route path="/about" element={<About />} />
         </Routes>
 

@@ -22,7 +22,7 @@ const CardGrid = ({ shows, isLoading }) => {
                 onClick={() => {
                   window.scroll(0, 0);
                 }}
-                to={"/CurrentPage/" + show.show.id}
+                to={"/shows/" + show.show.name + "/"+ show.show.id}
               >
                 <Card key={show.show?.id} show={show} />
               </Link>

@@ -22,7 +22,7 @@ const PeopleGrid = ({ people, isLoading }) => {
              onClick={() => {
                window.scroll(0, 0);
              }}
-             to={"/PeoplePage/" + people.person.id}
+             to={"/people/"  + people.person.name + "/" + people.person.id}
            >
              <CardPeople key={people.person.id} people={people} />
            </Link>
