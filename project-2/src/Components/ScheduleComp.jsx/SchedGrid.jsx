@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import SchedCard from "./SchedCard";
+import "./schedCard.css";
 
 const today = new Date();
 console.log(today);
@@ -15,7 +17,7 @@ const SchedGrid = () => {
   const [schedule, setSchedule] = useState([]);
 
   const URL = `https://api.tvmaze.com/schedule/web?date=${currentDate}&country=US`;
-  const getSchedule = async (url, setResp) => {
+  const getSchedule = async (URL, setResp) => {
     fetch(URL).then((resp) => {
       resp
         .json()
@@ -32,11 +34,14 @@ const SchedGrid = () => {
 
   return (
     <section>
-      <ul>
-        {/* {schedule.map((date) => {
-          return <li key={date.id}>{date.name} </li>;
-        })} */}
-      </ul>
+      <div className="schedule-container">
+        <h1>today</h1>
+      </div>
+      <>
+        {schedule.map((date) => {
+          return <SchedCard date={date} />;
+        })}
+      </>
     </section>
   );
 };
