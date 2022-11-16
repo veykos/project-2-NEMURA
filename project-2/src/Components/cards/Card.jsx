@@ -53,7 +53,7 @@ const Card = ({
             onClick={() => {
               window.scroll(0, 0);
             }}
-            to={"/CurrentPage/" + show.show.id}
+            to={"/shows/"+ show.show.name + "/" + show.show.id}
           >
             <img
               className="card-img"
