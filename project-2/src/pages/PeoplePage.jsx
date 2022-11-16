@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import image from "../assets/Image_not_available.png";
+import axios from "axios";
+import CardGrid from "../Components/cards/CardGrid";
 
 const PeoplePage = () => {
     const params = useParams();
@@ -30,47 +32,72 @@ const PeoplePage = () => {
     console.log(people, "dataPeople");
 
 
-    let arrayShowID = [];
+    let urls = [];
+    let IDs = [];
     const getId = (str) => {
       return str.split("/")[4]
     };
 
     if (!loading) {
       const arrayShows = people._embedded.castcredits;
-      console.log(arrayShows, "arrayShows");
       for (let i=0; i<arrayShows.length; i++) {
-        arrayShowID.push(getId(arrayShows[i]._links.show.href));
+        urls.push(arrayShows[i]._links.show.href);
       };
-      console.log(arrayShowID, "arrayShowID");
+      
     };
 
-    // async function fetchAllShows() {
-    //   try {
-    //     const shows = await axios.get(
-    //       `https://api.tvmaze.com/search/shows?q=${searchInput}`
-    //     );
-    //     const showsData = shows.data;
-    //     const people = await axios.get(
-    //       `https://api.tvmaze.com/search/people?q=${searchInput}`
-    //     );
-    //     const peopleData = people.data;
-    //     setShows(showsData);
-    //     setPeople(peopleData);
-    //     setIsLoading(false);
-    //     console.log({ showsData }, { peopleData });
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    //   console.log(shows)
-    // }
+    if (!loading) {
+      const arrayShows = people._embedded.castcredits;
+      console.log(arrayShows, "arrayShows");
+      for (let i=0; i<arrayShows.length; i++) {
+        IDs.push(getId(arrayShows[i]._links.show.href));
+      };
+      
+    };
 
+    console.log(urls, "urls");
+    console.log(IDs, "IDs");
 
-    return loading ? (
-      `loading...`
-    ) : (
+    const handleFetching = async (setResp, setLoading) => {
+       Promise.all(urls.map((url)=>  axios.get(url)))
+        .then(axios.spread((...allData)=> {
+          console.log(allData, "ilk consol");
+          
+          setResp(allData);
+
+         
+          // && resp[1].data
+          // setResp(resp[1].data);
+          console.log(allData);
+          if (allData) {
+            setLoading(false);
+          }
+          
+        }))
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+    };
+    const [shows, setShows] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+  
+    useEffect(() => {
+      handleFetching(setShows, setIsLoading);
+    }, [people]);
+
+    console.log(shows, "shows");
+
+    if (!isLoading) {
+      console.log('rerender')
+    
+    return  (
+      <>
+
 
       <div className="card" >
         <div className="card-image">
+
           <img className="card-img" alt = "image"  src={people.image ? people.image?.medium : image}/>
       </div>
       <div className="card-info">
@@ -83,29 +110,37 @@ const PeoplePage = () => {
           <h2><strong>Known For</strong></h2>
         </div>
         <div>
-        <section className="cards-section">
-     {people._embedded.castcredits.map((peoplecredit, key) => {
-        return (
-          <>
-            <div>
+          <section className="cards-section">
+            {!isLoading && shows.map((show, index) => {
+              return (
+                <>
+                  <div>
+
               
-              <tr key={key}>
-                <td className="tab-image"><a href={"/shows/:name/" + getId(peoplecredit._links.show.href)}><p>{peoplecredit._links.show.href}</p></a></td>
+                    
+              
+                  
+                      <a href={"/shows/" + show.data.name + "/" + IDs[index]}><p>{show.data.name}</p></a>
+                      {/* <p>{show.data.name}</p> */}
+
+                {/* { !isLoading && <p>{shows[index].data.name}</p>} */}
                 {/* <td className="tab-name">{key + 1}. <a href={"/CurrentPage" + val.id}>  </a> ({val.premiered.slice(0, 4)}-{(val.ended || "now").slice(0, 4)})</td> */}
-              </tr>
-            </div>
-          </>
-        );
-      })}
-    </section>
+                   
+                  </div>
+                </>
+              );
+            })}
+          </section>
         </div>
       </div>
     </div>
+    </>
 
         
     )
 
+}
 
-};
+}
 
 export default PeoplePage;

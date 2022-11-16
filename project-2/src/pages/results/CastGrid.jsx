@@ -3,6 +3,7 @@ import CurrentPage from "../CurrentPage";
 import "./results.css";
 import "../../App.css";
 import Cast from "./Cast";
+import { HashLink as Link } from "react-router-hash-link";
 
 
 const Results = ({cast, isloading}) => {
@@ -31,7 +32,15 @@ const Results = ({cast, isloading}) => {
             {cast.map((cast) => {
  return (
    <>
-     <Cast key={cast.person.id} cast={cast} />
+    <Link
+             onClick={() => {
+               window.scroll(0, 0);
+             }}
+             to={"/people/"  + cast.person.name + "/" + cast.person.id}
+           >
+             <Cast key={cast.person.id} cast={cast} />
+           </Link>
+     {/* <Cast key={cast.person.id} cast={cast} /> */}
    </>
  );
 })}

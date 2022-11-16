@@ -16,6 +16,9 @@ const CurrentPage = () => {
   const [loading, setLoading] = useState(true);
 
   // loading function
+
+  
+
   useEffect(() => {
     // setLoading(true);
     const timer = setTimeout(() => {
@@ -147,7 +150,7 @@ const CurrentPage = () => {
     box-shadow: 5px 5px 15px 5px #1d1818;
   `;
   const Summary = details.summary;
-  console.log(showImage);
+  console.log(showImage, "K");
   // const splide = new Splide( '.splide', {
   //   type   : 'loop',
   //   drag   : 'free',
