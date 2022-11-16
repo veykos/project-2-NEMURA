@@ -5,6 +5,8 @@ import styled from "styled-components";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import "./current.css";
 import Results from "./results/CastGrid.jsx";
+import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
+import { MyFavourites } from "./MyFavourites.jsx";
 
 const CurrentPage = () => {
   const params = useParams();
@@ -166,6 +168,12 @@ const CurrentPage = () => {
     box-shadow: 5px 5px 15px 5px #1d1818;
   `;
   const Summary = details.summary;
+  // const [favourites, setFavourites] = useState([]);
+  // const addToFavourits = (show) => {
+  //   const newFavoiriteList = [...favourites, show, "fuckme"];
+  //   setFavourites(newFavoiriteList);
+  // };
+  // console.log(favourites, "favories array");
 
   return (
     <div>
@@ -173,6 +181,7 @@ const CurrentPage = () => {
       {loading ? (
         // <div className="loader-container" />
         <div className="current-page-container">
+          {/* loading effect component */}
           <ClipLoader
             color="white"
             loading={loading}
@@ -222,8 +231,16 @@ const CurrentPage = () => {
               <a href={details?.officialSite ? details?.officialSite : null}>
                 {details?.officialSite ? "Official site" : null}
               </a>
+              {/* <div
+                onClick={() => {
+                  addToFavourits(params.id);
+                }}
+              >
+                <AddToFavourite />
+              </div> */}
             </Content>
           </Wraper>
+
           <Results cast={cast} />
           <SelectSeasons seasons={seasons} id={params.id} />
         </>

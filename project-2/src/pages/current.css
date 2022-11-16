@@ -44,3 +44,19 @@
     transform: rotate(360deg);
   }
 }
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0.5;
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.overlay:hover {
+  opacity: 1;
+  color: inherit;
+}
