@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import "./current.css";
 import Results from "./results/CastGrid.jsx";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import '@splidejs/splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
+import { MyFavourites } from "./MyFavourites.jsx";
 
 const CurrentPage = () => {
   const params = useParams();
@@ -23,15 +26,13 @@ const CurrentPage = () => {
     // setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 800);
+    }, 400);
     return () => {
       clearTimeout(timer);
     };
   }, []);
 
   const [showImage, setShowImage] = useState([]);
-
- 
 
   const fetchDetails = async () => {
     const data = await fetch(`https://api.tvmaze.com/shows/${params.id}`);
@@ -49,7 +50,9 @@ const CurrentPage = () => {
     setCast(castInfo._embedded.cast);
     // console.log(castInfo)
 
-    const dataSeasons = await fetch(`https://api.tvmaze.com/shows/${params.id}/seasons`);
+    const dataSeasons = await fetch(
+      `https://api.tvmaze.com/shows/${params.id}/seasons`
+    );
     const seasonDetail = await dataSeasons.json();
     setSeasons(seasonDetail);
 
@@ -132,6 +135,7 @@ const CurrentPage = () => {
     min-height: 700px;
     // width: 300px !important;
     overflow: hidden;
+    text-overflow: ellipsis;
   `;
 
   const Container = styled.section`
@@ -150,22 +154,23 @@ const CurrentPage = () => {
     box-shadow: 5px 5px 15px 5px #1d1818;
   `;
   const Summary = details.summary;
-  console.log(showImage, "K");
-  // const splide = new Splide( '.splide', {
-  //   type   : 'loop',
-  //   drag   : 'free',
-  //   snap   : true,
-  //   perPage: 3,
-  // } );
-  
-
 
   return (
-    <>
+    <div>
       {/* <div> */}
       {loading ? (
         // <div className="loader-container" />
-        <div class=" loader-container"></div>
+        <div className="current-page-container">
+          {/* loading effect component */}
+          <ClipLoader
+            color="white"
+            loading={loading}
+            // cssOverride={override}
+            size={100}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
       ) : (
         <>
           <div className="hero2"></div>
@@ -175,7 +180,7 @@ const CurrentPage = () => {
             <Hero>
               {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
             </Hero>
-            
+
             <Content>
               <h1>{details.name}</h1>
               <p>
@@ -206,6 +211,13 @@ const CurrentPage = () => {
               <a href={details?.officialSite ? details?.officialSite : null}>
                 {details?.officialSite ? "Official site" : null}
               </a>
+              {/* <div
+                onClick={() => {
+                  addToFavourits(params.id);
+                }}
+              >
+                <AddToFavourite />
+              </div> */}
             </Content>
           </Wraper>
           <Results cast={cast}/>
@@ -229,7 +241,7 @@ const CurrentPage = () => {
       )}
 
       {/* </div> */}
-    </>
+    </div>
   );
 };
 
