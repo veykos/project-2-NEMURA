@@ -12,15 +12,17 @@ import CurrentPage from "./pages/CurrentPage";
 import Schedule from "./pages/Schedule";
 import PeoplePage from "./pages/PeoplePage";
 import { useParams } from "react-router-dom";
+import { GlobalProvider } from "./Components/Context/GlobalState";
 // import Recomendedshows from "./Components/ratingSection/Recomended";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header>
-          <Navbar />
-        </header>
+    <GlobalProvider>
+      <Router>
+        <div className="App">
+          <header>
+            <Navbar />
+          </header>
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,11 +34,12 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        {/* <Recomendedshows /> */}
-        {/* <ResultsShow/> */}
-        <Footer />
-      </div>
-    </Router>
+          {/* <Recomendedshows /> */}
+          {/* <ResultsShow/> */}
+          <Footer />
+        </div>
+      </Router>
+    </GlobalProvider>
   );
 }
 

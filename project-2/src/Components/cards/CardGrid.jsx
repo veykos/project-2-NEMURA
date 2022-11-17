@@ -8,6 +8,8 @@ import { HashLink as Link } from "react-router-hash-link";
 const CardGrid = ({ shows, isLoading, handleFavoriteClick }) => {
   const { addTitleToFavourits, favourites, removeTitleFromFavourits } =
     useContext(GlobalContext);
+  console.log(addTitleToFavourits, "addTitleToFavourits from my cardgrid page");
+
   // const addedShow = favourites.find((i) => i.id === show.id);
   // const avoidDuplicate = addedShow ? true : false;
 
@@ -36,6 +38,7 @@ const CardGrid = ({ shows, isLoading, handleFavoriteClick }) => {
                   favourites={favourites}
                   key={show.show?.id}
                   show={show}
+                  // type={"favourites"}
                 />
                 {/* </Link> */}
               </>
