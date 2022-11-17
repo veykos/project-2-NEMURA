@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Home } from "./pages/Home";
-import { MyFavourites } from "./pages/MyFavourites";
+import MyFavourites  from "./pages/MyFavourites";
 import { Top50 } from "./pages/Top50";
 import { About } from "./pages/About";
 import { Navbar } from "./Components/UI/navbar.jsx";
