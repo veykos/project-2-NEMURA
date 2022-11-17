@@ -38,8 +38,8 @@ function TopPicks({ selectedMovie, setSelectedMovie }) {
 
   //Mapping through images
   const image = shows.map((e, i) => (
-    <NavLink key={i} to="/info">
-      <a href={"/CurrentPage/" + e.id}><img src={e.image.original} alt={e.name} onClick={() => setSelectedMovie(e)} /></a>
+    <NavLink key={i} to={"/CurrentPage/" + e.id}>
+      <img src={e.image.original} alt={e.name} onClick={() => setSelectedMovie(e)} />
       <div>
         <p>{e.image.name}</p>
       </div>
