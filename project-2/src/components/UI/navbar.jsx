@@ -39,7 +39,7 @@ export const Navbar = () => {
             window.scroll(0, 0);
           }}
         >
-          <img src={logo} alt="Logo" />
+          <img className="logo" src={logo} alt="Logo" />
         </Link>
         {/* onClick={() => !isVisible && setIsVisible(true)} */}
         <button

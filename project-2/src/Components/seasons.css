@@ -4,7 +4,7 @@
 .episode-row {
     display: flex;
     background-color: #CCCC;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     /* border-radius: 10px; */
     color:  #2c2b3c;
     /* min-height: max-content; */
@@ -32,8 +32,10 @@
 .seasons-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
     align-items: start;
     margin: 2% 7% 7% 7%;
+    gap:0.5rem;
 }
 
 .read-or-hide {
@@ -43,8 +45,9 @@
 
 h1 {
     margin: 4% 0 0 7%;
+    color: white;
 }
 
 select {
-    margin: 1% 0 1% 7%;
+    margin: 0 0 1% 7%;
 }

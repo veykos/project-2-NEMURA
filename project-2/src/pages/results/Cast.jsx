@@ -10,7 +10,7 @@ const Cast = ({ cast }) => {
     <>
       <div className="card">
         <div className="card-image">
-            <img className="card-img" alt = "image"  src={cast.character?.image ? cast.character.image.medium  : image}/>
+            <img className="card-img" alt = "image"  src={cast.character?.image ? cast.character.image.medium  : cast.person.image?.medium || image}/>
         </div>
         <div className="card-info">
             <p className="result-name"><strong>{cast.person?.name}</strong> </p>

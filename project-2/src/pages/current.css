@@ -85,3 +85,8 @@
   opacity: 1;
   color: inherit;
 }
+
+h1 {
+  margin: 4% 3% 2% 7% !important;
+  color: white;
+}

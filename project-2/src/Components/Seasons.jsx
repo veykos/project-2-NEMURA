@@ -12,9 +12,9 @@ const ReadMore = ({ ep }) => {
     };
     return (
       <p className="text">
-        {isReadMore ? text.slice(0, 90) : text}
+        {isReadMore ? text?.slice(0, 90) : text}
         <span onClick={toggleReadMore} className="read-or-hide">
-          {isReadMore ? "... Read more" : " Show less"}
+          {text ? isReadMore ? "... Read more" : " Show less" : null}
         </span>
       </p>
     );
@@ -80,7 +80,7 @@ const Seasons = ({id, selected}) => {
                     </div>
                     <div className="y">
                     <div className="summary">
-                        <ReadMore ep={filteredEpisodes.summary.replace(/<[^>]+>/g, '') }></ReadMore>
+                        <ReadMore ep={filteredEpisodes.summary?.replace(/<[^>]+>/g, '') }></ReadMore>
                     </div>
                     </div>
                     </div>
