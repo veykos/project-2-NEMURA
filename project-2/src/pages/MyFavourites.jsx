@@ -1,16 +1,24 @@
-import React from "react";
 import "../App.css";
-import Quotes from "../Components/Quotes/Quotes"
+import "../Components/favourites/favourites.css";
+import Quotes from "../Components/Quotes/Quotes";
+import CardGrid from "../Components/cards/CardGrid";
+import React, { useContet } from "react";
+import { GlobalContext } from "../Components/Context/GlobalState";
+import { useContext } from "react";
 
 export const MyFavourites = () => {
-    return (
-        <div>
-        <div className="hero"> 
-            <Quotes />
-        </div>
-            <h1>My favourites</h1>
-            <p> Here will be my favourite TV shows displayed</p>
-        </div>
-        
-    );
+  const { favourites } = useContext(GlobalContext);
+  console.log(favourites, "from the faves page");
+  return (
+    <div>
+      <div className="hero">
+        <Quotes />
+      </div>
+      {favourites.length > 0 ? (
+        <CardGrid shows={favourites} />
+      ) : (
+        <h1 className="nofav">NO FAVOURITE ADDED</h1>
+      )}
+    </div>
+  );
 };
