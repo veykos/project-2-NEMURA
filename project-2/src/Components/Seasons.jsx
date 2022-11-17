@@ -1,7 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import image from "../assets/Image_not_available.png";
+import "./seasons.css";
 
+
+const ReadMore = ({ ep }) => {
+    const text = ep;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+    return (
+      <p className="text">
+        {isReadMore ? text.slice(0, 90) : text}
+        <span onClick={toggleReadMore} className="read-or-hide">
+          {isReadMore ? "... Read more" : " Show less"}
+        </span>
+      </p>
+    );
+  };
 
 const Seasons = ({id, selected}) => {
 
@@ -26,39 +43,52 @@ const Seasons = ({id, selected}) => {
             </>
         )
     } 
-
+    
 
     useEffect(() => {
         fetchEpisodes();
     }, []);
     console.log(episodes, "episodes");
-
+    // let ep= null;
+    // const strippedHtml = myHTML.replace(/<[^>]+>/g, '');
     return isloading ? ( `loading...`) : (  
         <>
-             <div>
-            {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
-           <div className="card">
-             <div className="card-image">
-             <img className="card-img" alt = "image"  src={filteredEpisodes.image ? filteredEpisodes.image.medium  : image}/>
-         </div>
-         <div className="card-info">
-             <p className="result-name"><strong>{filteredEpisodes.number}. {filteredEpisodes.name}</strong> </p>
-             <p dangerouslySetInnerHTML={{ __html: filteredEpisodes.summary }}></p>
-             <p>
-                <strong>Rating: </strong>
-                {filteredEpisodes.rating.average}/10
-                ⭐️
-              </p>
-             <p><strong>Airdate: </strong>{filteredEpisodes.airdate.split("-").reverse().join(".")}</p>
-             
-             <p><strong>Runtime: </strong>{filteredEpisodes.runtime}m</p>
-
-         </div>
-         </div>
-          ))}
-          </div>
-       </>
-            )
-      }
+            <div className="seasons-section">
+                {episodes.filter(episode => episode.season===selected).map(filteredEpisodes => (
+                
+                <div className="episode-row">
+                    <div className="episode-image">
+                        <img className="episode-img" alt = "image"  src={filteredEpisodes.image ? filteredEpisodes.image.medium  : image}/>
+                    </div>
+                    <div className="h">
+                    <div className="x">
+                    {/* <div>
+                    <p className="episode-name"><strong>{filteredEpisodes.number}.</strong> </p>
+                    </div> */}
+                    <div className="episode-info">
+                        <p className="episode-name"><strong>{filteredEpisodes.number}. {filteredEpisodes.name}</strong> </p>
+                    </div>
+                    <div>
+                        <p>⭐️ {filteredEpisodes.rating.average}/10</p>
+                    </div>
+                    <div>
+                        <p>{filteredEpisodes.airdate.split("-").reverse().join(".")}</p>
+                    </div>
+                    {/* <div>
+                        <p><strong>Runtime: </strong>{filteredEpisodes.runtime}m</p>
+                    </div> */}
+                    </div>
+                    <div className="y">
+                    <div className="summary">
+                        <ReadMore ep={filteredEpisodes.summary.replace(/<[^>]+>/g, '') }></ReadMore>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+                ))}
+            </div>
+        </>
+    )
+}
 
 export default Seasons;

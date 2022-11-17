@@ -221,7 +221,7 @@ const CurrentPage = () => {
             </Content>
           </Wraper>
           <Results cast={cast}/>
-          <SelectSeasons seasons={seasons} id={params.id}/>
+          
           <section class="splide" aria-label="Splide Basic HTML Example">
               <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 800, gap: '0.5rem',   type: 'loop', drag: 'free', snap: true, perPage: 3, breakpoints: { 480: {perPage: 1, gap: '.7rem'},}} }>
 
@@ -241,6 +241,7 @@ const CurrentPage = () => {
       )}
 
       {/* </div> */}
+      <SelectSeasons seasons={seasons} id={params.id}/>
     </div>
   );
 };
