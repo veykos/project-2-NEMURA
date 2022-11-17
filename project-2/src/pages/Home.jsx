@@ -95,7 +95,7 @@ export const Home = () => {
         <div className="page-body">
           <PeopleGrid people={people} />
         </div>
-        <SchedGrid />
+        {/* <SchedGrid /> */}
       </div>
     </GlobalProvider>
   );
