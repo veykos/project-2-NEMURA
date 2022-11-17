@@ -136,7 +136,7 @@ const PeoplePage = () => {
       
       <div>
         <div>
-          <h1><strong>Known For</strong></h1>
+          {shows !== [] && <h1><strong>Known For</strong></h1>}
         </div>
         <div className="mul">
           <section className="cards-section">
