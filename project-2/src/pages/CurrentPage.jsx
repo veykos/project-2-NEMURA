@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-import "./current.css";
+// import "./current.css";
 import Results from "./results/CastGrid.jsx";
 
 const CurrentPage = () => {
@@ -70,7 +70,7 @@ const CurrentPage = () => {
   const poster = showImage.filter((image) => {
     return image.type === "poster";
   });
-  console.log(background);
+  // console.log(background);
 
   const Hero = styled.div`
     background-image: url(${poster[0]?.resolutions.original.url

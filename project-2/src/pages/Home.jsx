@@ -8,6 +8,7 @@ import axios from "axios";
 import "../App.css";
 import ResultsCast from "./results/CastGrid";
 import SchedGrid from "../Components/ScheduleComp.jsx/SchedGrid.jsx";
+import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
 
 export const Home = () => {
   const [people, setPeople] = useState([]);
@@ -34,7 +35,7 @@ export const Home = () => {
     } catch (error) {
       console.log(error);
     }
-    console.log(shows)
+    console.log(shows);
   }
 
   useEffect(() => {
@@ -60,13 +61,17 @@ export const Home = () => {
         <div id="section" />
       </div>
       <hr />
+      <div>
+        <h2 className="headlines">NEMURA's TOP</h2>
+        <TopPicks />
+      </div>
       <div className="page-body">
         <CardGrid shows={shows} />
       </div>
       <div className="page-body">
         <PeopleGrid people={people} />
       </div>
-        {/* <ResultsCast/> */}
+      {/* <ResultsCast/> */}
       {/* <SchedGrid /> */}
     </div>
   );

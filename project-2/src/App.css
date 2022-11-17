@@ -129,3 +129,22 @@ h2 {
     opacity: 0.7;
   }
 }
+.alice-carousel__dots {
+  display: none;
+}
+
+.alice-carousel__stage-item img {
+  border-radius: 30px;
+  width: auto;
+  height: 350px;
+  padding: 20px;
+}
+.alice-carousel__stage-item {
+  height: 100px;
+  width: 100px;
+}
+
+  .alice-carousel__next-btn-item,
+  .alice-carousel__prev-btn-item {
+    font-size: 3em;
+  }

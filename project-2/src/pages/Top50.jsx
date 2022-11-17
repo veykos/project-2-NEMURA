@@ -11,42 +11,6 @@ export const Top50 = () => {
     const [isLoading, setIsLoading] = useState(true);
     const urlTop = 'https://api.tvmaze.com/shows'
 
-    // const data = [
-    //     {
-    //       col1: 'image in here',
-    //       col2: 'name in here',
-    //       col3: 'genre in here',
-    //     },
-    //   ]
-
-    // const columns = [
-    //     {
-    //         // first group - TV Show
-    //         Header: "TV Show",
-    //         // First group columns
-    //         columns: [
-    //             {
-    //                 Header: "Image",
-    //                 accessor: "col1"
-    //             },
-    //             {
-    //                 Header: "Name",
-    //                 accessor: "col2"
-    //             },
-    //             {
-    //                 Header: "Genre",
-    //                 accessor: "col3"
-    //             },
-    //         ]
-    //     }]
-
-    // const {
-    //     getTableProps,
-    //     getTableBodyProps,
-    //     headerGroups,
-    //     rows,
-    //     prepareRow,
-    // } = useTable({ columns, data : data })
 
     const fetchWithAxios = async (urlTop, setTop) => {
         axios
