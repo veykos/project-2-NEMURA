@@ -13,6 +13,7 @@ import {
   GlobalContext,
   GlobalProvider,
 } from "../Components/Context/GlobalState.jsx";
+import { TopPicks } from "../Components/TopPicks/TopPicks.jsx";
 
 export const Home = () => {
   const [people, setPeople] = useState([]);
@@ -46,7 +47,7 @@ export const Home = () => {
     } catch (error) {
       console.log(error);
     }
-    console.log(shows)
+    console.log(shows);
   }
 
   useEffect(() => {
@@ -97,6 +98,20 @@ export const Home = () => {
         </div>
         {/* <SchedGrid /> */}
       </div>
+    
+      <hr />
+      <div>
+        <h2 className="headlines">NEMURA's TOP</h2>
+        <TopPicks />
+      </div>
+      <div className="page-body">
+        <CardGrid shows={shows} />
+      </div>
+      <div className="page-body">
+        <PeopleGrid people={people} />
+      </div>
+      {/* <ResultsCast/> */}
+      {/* <SchedGrid /> */}
     </GlobalProvider>
   );
 };

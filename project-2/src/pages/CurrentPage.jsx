@@ -88,7 +88,7 @@ const CurrentPage = () => {
   const poster = showImage.filter((image) => {
     return image.type === "poster";
   });
-  console.log(background);
+  // console.log(background);
 
   const Hero = styled.div`
     background-image: url(${poster[0]?.resolutions.original.url
