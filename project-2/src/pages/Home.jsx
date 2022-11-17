@@ -104,12 +104,12 @@ export const Home = () => {
         <h2 className="headlines">NEMURA's TOP</h2>
         <TopPicks />
       </div>
-      <div className="page-body">
+      {/* <div className="page-body">
         <CardGrid shows={shows} />
       </div>
       <div className="page-body">
         <PeopleGrid people={people} />
-      </div>
+      </div> */}
       {/* <ResultsCast/> */}
       {/* <SchedGrid /> */}
     </GlobalProvider>
