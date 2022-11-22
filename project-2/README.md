@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-renamed Components to components 
+renamed Components to components folder component
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
