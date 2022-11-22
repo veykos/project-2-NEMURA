@@ -4,7 +4,7 @@ import { Home } from "./pages/Home";
 import { MyFavourites } from "./pages/MyFavourites";
 import { Top20 } from "./pages/Top20";
 import { About } from "./pages/About";
-import { Navbar } from "./Components/UI/navbar.jsx";
+import { Navbar } from "./Components/navbar/navbar.jsx";
 import Footer from "./Components/Footer";
 import ResultsShow from "./pages/results/CastGrid";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
