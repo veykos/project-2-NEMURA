@@ -19,7 +19,7 @@ const CardGrid = ({ shows, isLoading, handleFavoriteClick }) => {
     <section>
       <hr></hr>
       <div className="headlines" id="headlines">
-        <h2>{shows.length ? "Titles" : null}</h2>
+        <h1><strong>{shows.length ? "Titles" : null}</strong></h1>
       </div>
       <div className="mul">
         <div className="cards-section">

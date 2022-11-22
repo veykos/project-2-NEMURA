@@ -24,8 +24,8 @@ const Results = ({cast, isloading}) => {
            
         // </div>
         <div>
-          <div className="headlines">
-            <h2>{cast.length ? "Cast" : null}</h2>
+          <div className="headlines" id="headlines">
+            <h1>{cast.length ? "Cast" : null}</h1>
           </div>
           <div  className="mul">
           <section className="cards-section">

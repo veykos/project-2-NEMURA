@@ -108,9 +108,14 @@ h2 {
 }
 .h1 {
   font-size: 1.5rem;
+  font-weight: bolder;
 }
+/* h2{
+  margin: 0 0 1% 7%;
+} */
 .headlines {
-  padding-left: 90px;
+  /* padding-left: 45%; */
+  text-align: center;
 }
 .titles {
   padding-top: 100px;

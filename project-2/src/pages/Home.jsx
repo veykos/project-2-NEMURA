@@ -100,8 +100,8 @@ export const Home = () => {
       </div>
     
       <hr />
-      <div>
-        <h2 className="headlines">NEMURA's TOP</h2>
+      <div className="headlines" id="headlines">
+        <h1 >Nemura's Top</h1>
         <TopPicks />
       </div>
       {/* <div className="page-body">

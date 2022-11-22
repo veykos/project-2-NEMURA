@@ -69,7 +69,7 @@ const Seasons = ({id, selected}) => {
                         <p className="episode-name"><strong>{filteredEpisodes.number}. {filteredEpisodes.name}</strong> </p>
                     </div>
                     <div>
-                        <p>⭐️ {filteredEpisodes.rating.average}/10</p>
+                        {filteredEpisodes.rating.average && <p>⭐️ {filteredEpisodes.rating.average}/10</p>}
                     </div>
                     <div>
                         <p>{filteredEpisodes.airdate.split("-").reverse().join(".")}</p>

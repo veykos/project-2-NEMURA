@@ -9,8 +9,8 @@ const PeopleGrid = ({ people, isLoading }) => {
   ) : (
 
     <div>
-       <div className="headlines">
-                <h2>{people.length ? "People" : null}</h2>
+       <div className="headlines" id="headlines">
+                <h1><strong>{people.length ? "People" : null}</strong></h1>
             </div>
           <div  className="mul">
     <section className="cards-section">

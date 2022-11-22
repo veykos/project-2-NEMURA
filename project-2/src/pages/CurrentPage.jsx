@@ -11,6 +11,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
 import { MyFavourites } from "./MyFavourites.jsx";
+import ScrollButton from "../Components/scrollButton";
 
 const CurrentPage = () => {
   const params = useParams();
@@ -223,8 +224,10 @@ const CurrentPage = () => {
             </Content>
           </Wraper>
           <Results cast={cast}/>
-
+          
+          <div className="headlines" id="headlines">
           <h1>Photos</h1>
+          </div>
           <section class="splide" aria-label="Splide Basic HTML Example">
               <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 800, gap: '0.5rem',   type: 'loop', drag: 'free', snap: true, perPage: 3, breakpoints: { 480: {perPage: 1, gap: '.7rem'},}} }>
 
@@ -245,6 +248,7 @@ const CurrentPage = () => {
 
       {/* </div> */}
       <SelectSeasons seasons={seasons} id={params.id}/>
+      <ScrollButton />
     </div>
   );
 };

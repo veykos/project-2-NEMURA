@@ -114,6 +114,9 @@ const PeoplePage = () => {
       <>
 
     <div className="hero2"></div>
+    <div className="headlines" id="headlines">
+    <h1><strong>About</strong></h1>
+    </div>
     
       <div key={people} >
         <div className="wrap">
@@ -135,7 +138,7 @@ const PeoplePage = () => {
       </div>
       
       <div>
-        <div>
+        <div className="headlines" id="headlines">
           {shows !== [] && <h1><strong>Known For</strong></h1>}
         </div>
         <div className="mul">
@@ -145,8 +148,8 @@ const PeoplePage = () => {
               
                   <div key={show.name}>
 
-                  <div className="card">
-                  <Link
+                  <div >
+                  <Link className="card"
             onClick={() => {
               window.scroll(0, 0);
             }}
