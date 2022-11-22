@@ -29,7 +29,7 @@ export const Top50 = () => {
 
 
 
-    console.log(top)
+    // console.log(top)
     if (top.length === 0) {
         return 'Loading'
     }
@@ -46,7 +46,7 @@ export const Top50 = () => {
                 <table>
                     <thead>
                         <tr className="titles">
-                            <th colspan="2">Name</th>
+                            <th colSpan="2">Name</th>
                             <th>Genre</th>
                             <th>Rating</th>
                         </tr>

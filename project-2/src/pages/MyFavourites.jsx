@@ -13,8 +13,8 @@ import FavouriteCard from "../Components/favourites/FavouriteCard";
 
 const MyFavourites = () => {
   const { favourites, addTitleToFavourits } = useContext(GlobalContext);
-  console.log(addTitleToFavourits, "addTitleToFavourits from my fav page");
-  console.log(favourites, "favouritesssss");
+  // console.log(addTitleToFavourits, "addTitleToFavourits from my fav page");
+  // console.log(favourites, "favouritesssss");
 
   return (
     // <GlobalProvider>
@@ -23,9 +23,9 @@ const MyFavourites = () => {
         <Quotes />
       </div>
       <div className="mal cards-section">
-        {favourites.map((show, key) => {
+        {favourites.map((show, index) => {
           return (
-            <div>
+            <div key={index}>
               <FavouriteCard
                 show={show}
                 key={show.show.id}

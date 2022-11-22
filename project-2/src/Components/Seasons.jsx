@@ -24,7 +24,7 @@ const Seasons = ({id, selected}) => {
 
     const [episodes, setEpisodes] = useState([]);
     const [isloading, setIsloading] = useState(true);
-    console.log(selected, "selected")
+    // console.log(selected, "selected")
 
     const fetchEpisodes = async () => {
         const dataEpisodes = await fetch(`https://api.tvmaze.com/shows/${id}/episodes`);
@@ -48,7 +48,7 @@ const Seasons = ({id, selected}) => {
     useEffect(() => {
         fetchEpisodes();
     }, []);
-    console.log(episodes, "episodes");
+    // console.log(episodes, "episodes");
     // let ep= null;
     // const strippedHtml = myHTML.replace(/<[^>]+>/g, '');
     return isloading ? ( `loading...`) : (  

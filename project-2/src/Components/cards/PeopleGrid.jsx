@@ -4,11 +4,12 @@ import "./cards.css";
 import { HashLink as Link } from "react-router-hash-link";
 
 const PeopleGrid = ({ people, isLoading }) => {
+
   return isLoading ? (
     `loading...`
   ) : (
 
-    <div>
+    <div >
        <div className="headlines" id="headlines">
                 <h1><strong>{people.length ? "People" : null}</strong></h1>
             </div>
@@ -16,17 +17,16 @@ const PeopleGrid = ({ people, isLoading }) => {
     <section className="cards-section">
      {people.map((people) => {
         return (
-          <>
-            {/* <CardPeople key={people.person.id} people={people} /> */}
-            <Link
+            <div key={people.person.id}>
+            <Link 
              onClick={() => {
                window.scroll(0, 0);
              }}
              to={"/people/"  + people.person.name + "/" + people.person.id}
            >
-             <CardPeople key={people.person.id} people={people} />
+             <CardPeople  people={people}  />
            </Link>
-          </>
+           </div>
         );
       })}
     </section>

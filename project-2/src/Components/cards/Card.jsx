@@ -19,11 +19,11 @@ const Card = ({
   removeTitleFromFavourits,
 }) => {
   const addedShow = favourites.find((i) => i.show.id === show.show.id);
-  console.log(show.show.id, "added show");
-  console.log(removeTitleFromFavourits, "addTitleToFavourits");
+  // console.log(show.show.id, "added show");
+  // console.log(removeTitleFromFavourits, "addTitleToFavourits");
 
   const avoidDuplicate = addedShow ? true : false;
-  console.log(type);
+  // console.log(type);
 
   const ratingConditional = (rating) => {
     if (rating <= 2) {

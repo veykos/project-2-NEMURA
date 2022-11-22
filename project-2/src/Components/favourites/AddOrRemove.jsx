@@ -5,7 +5,7 @@ import "./favourites.css";
 
 function AddOrRemove({ show }) {
   const { removeTitleFromFavourits } = useContext(GlobalContext);
-  console.log(removeTitleFromFavourits, "fromaddorremove");
+  // console.log(removeTitleFromFavourits, "fromaddorremove");
   //   console.log(show, "dsgxjkhfskdfd");
 
   return (

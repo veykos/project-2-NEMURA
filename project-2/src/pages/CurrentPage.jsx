@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
 import "./current.css";
@@ -12,6 +12,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
 import { MyFavourites } from "./MyFavourites.jsx";
 import ScrollButton from "../Components/scrollButton";
+import { Hero, Wraper, Content, Container } from './CurrentStyles';
 
 const CurrentPage = () => {
   const params = useParams();
@@ -44,7 +45,8 @@ const CurrentPage = () => {
     // console.log(dataDetail, 'datadetail');
 
     const ID = dataDetail.id;
-    console.log(ID, "ID");
+    // console.log(ID, "ID");
+  
 
     const dataCast = await fetch(
       `https://api.tvmaze.com/shows/${ID}?embed=cast`
@@ -71,18 +73,18 @@ const CurrentPage = () => {
     const dataDetail = await data.json();
     setShowImage(dataDetail);
   };
-  console.log(details);
+  // console.log(details);
 
 
   useEffect(() => {
     fetchDetails();
     fetchImages();
     // fetchSeansons();
-    console.log(seasons, "seasons");
+    // console.log(seasons, "seasons");
   }, [params.id]);
-  console.log(details, "details");
-  console.log(params);
-  console.log(showImage);
+  // console.log(details, "details");
+  // console.log(params);
+  // console.log(showImage);
   // console.log(seasons, "seasons");
 
   const background = showImage.filter((image) => {
@@ -177,14 +179,14 @@ const CurrentPage = () => {
       ) : (
         <>
           <div className="hero2"></div>
-          <Container></Container>
+          <Container poster={poster} showImage={showImage} background={background}></Container>
           {/* <div id="section1">Hi</div> */}
-          <Wraper>
-            <Hero>
+          <Wraper poster={poster} showImage={showImage} background={background}>
+            <Hero poster={poster} showImage={showImage} background={background}>
               {/* <img src={showImage[5]?.resolutions.original.url} alt="" /> */}
             </Hero>
 
-            <Content>
+            <Content poster={poster} showImage={showImage} background={background}>
               <h1>{details.name}</h1>
               <p>
                 {details.premiered?.slice(0, 4)} - {details.ended?.slice(0, 4)}
@@ -230,16 +232,17 @@ const CurrentPage = () => {
           </div>
           <div className="splideN">
           
-          <section class="splide" aria-label="Splide Basic HTML Example">
+          <section className="splide" aria-label="Splide Basic HTML Example">
          
               <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 1000, gap: '0.1rem',   type: 'loop', drag: 'free', snap: true, perPage: 4, breakpoints: { 1100: {perPage: 3, gap: '.1rem'}, 750: {perPage: 2, gap: '.1rem'}, 480: {perPage:1, gap: '.1rem'}}} }>
 
-          {showImage.map((img) => {
+          {showImage.map((img, index) => {
             return (
-            
+            <div key={index}>
               <SplideSlide>
                   <a href={img.resolutions?.original?.url}><img className= "images" src={img.resolutions?.original?.url}  alt="Image 1"/></a>
               </SplideSlide>
+              </div>
             )
           })}
           

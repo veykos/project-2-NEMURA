@@ -27,7 +27,7 @@ function TopPicks({ selectedMovie, setSelectedMovie }) {
     useEffect(() => {
       handleFetching(setShows, setLoading);
     }, []);
-    console.log(shows, "Nshows");
+    // console.log(shows, "Nshows");
   // const navigate = useNavigate;
 
  
@@ -60,7 +60,7 @@ function TopPicks({ selectedMovie, setSelectedMovie }) {
   };
 
   return (
-    <div>
+    <div className="splideN">
       <AliceCarousel
         responsive={responsive}
         mouseTracking

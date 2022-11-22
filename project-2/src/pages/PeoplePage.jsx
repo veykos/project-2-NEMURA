@@ -28,9 +28,9 @@ const PeoplePage = () => {
 
     useEffect(() => {
         fetchPeople();
-        console.log(people, "dataPeopleEffect");
+        // console.log(people, "dataPeopleEffect");
     }, []);
-    console.log(people, "dataPeople");
+    // console.log(people, "dataPeople");
 
 
     let urls = [];
@@ -49,26 +49,26 @@ const PeoplePage = () => {
 
     if (!loading) {
       const arrayShows = people._embedded.castcredits;
-      console.log(arrayShows, "arrayShows");
+      // console.log(arrayShows, "arrayShows");
       for (let i=0; i<arrayShows.length; i++) {
         IDs.push(getId(arrayShows[i]._links.show.href));
       };
       
     };
 
-    console.log(urls, "urls");
-    console.log(IDs, "IDs");
+    // console.log(urls, "urls");
+    // console.log(IDs, "IDs");
 
     const handleFetching = async (setResp, setLoading) => {
        Promise.all(urls.map((url)=>  axios.get(url)))
         .then(axios.spread((...allData)=> {
-          console.log(allData, "ilk consol");
+          // console.log(allData, "ilk consol");
           setResp(allData.map(show => show.data));
 
          
           // && resp[1].data
           // setResp(resp[1].data);
-          console.log(allData);
+          // console.log(allData);
           if (allData) {
             setLoading(false);
           }
@@ -86,10 +86,10 @@ const PeoplePage = () => {
       handleFetching(setShows, setIsLoading);
     }, [people]);
 
-    console.log(shows, "shows");
+    // console.log(shows, "shows");
 
     if (!isLoading) {
-      console.log('rerender')
+      // console.log('rerender')
       const ratingConditional = (rating) => {
         if (rating <= 2) {
           return "⭐️";

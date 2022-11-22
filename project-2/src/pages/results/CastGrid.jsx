@@ -7,7 +7,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 
 const Results = ({cast, isloading}) => {
-  console.log(cast, "cast")
+  // console.log(cast, "cast")
   // if (!isloading) {
   //   console.log(cast, "load")
   // } else {
@@ -16,22 +16,15 @@ const Results = ({cast, isloading}) => {
   return isloading ? (
     `loading...`
   ) : (
-
-        // <div>
-        //   {cast.map(item =>{
-        //    return <p>{item.character?.name ? item.character.name : "M"}</p>
-        //   })}
-           
-        // </div>
         <div>
           <div className="headlines" id="headlines">
             <h1>{cast.length ? "Cast" : null}</h1>
           </div>
           <div  className="mul">
           <section className="cards-section">
-            {cast.map((cast) => {
+            {cast.map((cast, index) => {
  return (
-   <>
+   <div key={index}>
     <Link
              onClick={() => {
                window.scroll(0, 0);
@@ -40,8 +33,7 @@ const Results = ({cast, isloading}) => {
            >
              <Cast key={cast.person.id} cast={cast} />
            </Link>
-     {/* <Cast key={cast.person.id} cast={cast} /> */}
-   </>
+   </div>
  );
 })}
 </section>

@@ -163,4 +163,10 @@ h2 {
   .alice-carousel__next-btn-item,
   .alice-carousel__prev-btn-item {
     font-size: 3em;
+    text-align: center;
+    color: #000 !important;
+  }
+
+  .alice-carousel__prev-btn {
+    text-align: center !important;
   }
