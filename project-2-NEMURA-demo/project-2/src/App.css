@@ -1,0 +1,182 @@
+body {
+  /* font-family: "Montserrat", sans-serif; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #403f4c;
+  /* background: linear-gradient(#524c4c, #8e7c7c); */
+}
+h2 {
+  color: white;
+  /* font-weight: bold; */
+  /* padding-top: 50px; */
+}
+
+.headingtext {
+  text-align: center;
+  padding-bottom: 50px;
+  color: white;
+  font-weight: normal;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  flex-direction: column;
+}
+.hero {
+  background-image: url("https://images.pexels.com/photos/4009603/pexels-photo-4009603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  /* max-height: 200%; */
+  opacity: 0.9;
+  box-shadow: 5px 5px 15px 5px #000000;
+  background-color: #598392;
+  /* background-color: #2b3539; */
+
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 600px;
+  box-shadow: 5px 5px 15px 5px #3f3b3b;
+  position: relative;
+}
+
+/* hero 2 is just to for testing , when a card is opened in a new page how much of the hero we are howing if any */
+.hero2 {
+  /* background-image: url("https://images.pexels.com/photos/4009603/pexels-photo-4009603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */
+
+  opacity: 0.9;
+  box-shadow: 5px 5px 15px 5px #000000;
+  /* background-color: #598392; */
+  background-color: #000;
+
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 65px;
+  box-shadow: 5px 5px 15px 5px #1d1818;
+  position: relative;
+  /* background-color: #1d1818;
+  height: 60px; */
+}
+.search-form {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* center-tex */
+  /* margin-top: 200px; */
+}
+.search-input {
+  width: 50%;
+  height: 55px;
+  font-size: 1.5rem;
+  /* margin-top: 200px; */
+  opacity: 0.7;
+  border-radius: 20px;
+}
+
+.btn {
+  /* height: 55px; */
+  width: 150px;
+  margin: 10px;
+  border: none;
+  font-size: 1.5rem;
+  background-color: rgb(58, 58, 72);
+}
+.btn:hover {
+  background-color: rgb(16, 16, 23);
+  color: bisque;
+}
+.h1 {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+/* h2{
+  margin: 0 0 1% 7%;
+} */
+.headlines {
+  /* padding-left: 45%; */
+  text-align: center;
+}
+.titles {
+  /* padding-top: 100px; */
+}
+
+/* For Mobile Version: */
+@media all and (max-width: 768px) {
+  .hero {
+    /* background-image: url("./assets/bg-hero.jpg"); */
+
+    background-repeat: no-repeat;
+    object-fit: fill;
+    background-position: center;
+    height: 500px;
+  }
+  .search-input {
+    width: 80%;
+    height: 55px;
+    font-size: 1.3rem;
+    /* margin-top: 200px; */
+    opacity: 0.7;
+  }
+  .headlines {
+    margin: 0;
+    padding: 0;
+  }
+  .headingtext {
+    text-align: center;
+    /* padding-bottom: 50px; */
+    color: white;
+    font-weight: normal;
+  }
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 420px;
+    flex-direction: column;
+  }
+  .search-form {
+    width: 90%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* center-tex */
+    /* margin-top: 200px; */
+  }
+  .btn {
+    /* height: 55px; */
+    width: 150px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    background-color: rgb(58, 58, 72);
+  }
+}
+.alice-carousel__dots {
+  display: none;
+}
+
+.alice-carousel__stage-item img {
+  border-radius: 30px;
+  width: auto;
+  height: 350px;
+  padding: 20px;
+}
+.alice-carousel__stage-item {
+  height: 100px;
+  width: 100px;
+}
+
+.alice-carousel__next-btn-item,
+.alice-carousel__prev-btn-item {
+  font-size: 3em;
+}
