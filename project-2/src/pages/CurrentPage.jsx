@@ -228,8 +228,11 @@ const CurrentPage = () => {
           <div className="headlines" id="headlines">
           <h1>Photos</h1>
           </div>
+          <div className="splideN">
+          
           <section class="splide" aria-label="Splide Basic HTML Example">
-              <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 800, gap: '0.5rem',   type: 'loop', drag: 'free', snap: true, perPage: 3, breakpoints: { 480: {perPage: 1, gap: '.7rem'},}} }>
+         
+              <Splide aria-label="My Favorite Images"  options={ {rewind: true, width: 1000, gap: '0.1rem',   type: 'loop', drag: 'free', snap: true, perPage: 4, breakpoints: { 1100: {perPage: 3, gap: '.1rem'}, 750: {perPage: 2, gap: '.1rem'}, 480: {perPage:1, gap: '.1rem'}}} }>
 
           {showImage.map((img) => {
             return (
@@ -243,11 +246,12 @@ const CurrentPage = () => {
               </Splide>
           
             </section>
+            </div>
         </>
       )}
 
       {/* </div> */}
-      <SelectSeasons seasons={seasons} id={params.id}/>
+      {/* <SelectSeasons seasons={seasons} id={params.id}/> */}
       <ScrollButton />
     </div>
   );

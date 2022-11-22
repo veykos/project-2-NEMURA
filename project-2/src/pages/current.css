@@ -90,3 +90,11 @@ h1 {
   margin: 4% 3% 2% 7% !important;
   color: white;
 }
+
+.splideN {
+  background-color: #2c2b3c;
+    border-radius: 10px;
+    margin:8%;
+    box-shadow: 5px 5px 15px 5px #1d1818;
+    padding: 10px 0 10px 0;
+}
