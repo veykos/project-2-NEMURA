@@ -7,6 +7,8 @@ import Results from "./results/CastGrid.jsx";
 import SelectSeasons from "../Components/SelectSeasons.jsx";
 import '@splidejs/splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 import AddToFavourite from "../Components/favourites/AddToFavourite.jsx";
 import { MyFavourites } from "./MyFavourites.jsx";
 
